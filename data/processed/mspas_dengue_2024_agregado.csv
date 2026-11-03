@@ -1,0 +1,586 @@
+Departamento,Grupo Etario,Sexo,Casos
+ALTA VERAPAZ,< 1 mes,Femenino,1
+ALTA VERAPAZ,1 mes a < 2 meses,Femenino,1
+ALTA VERAPAZ,2 meses a < 1 año,Femenino,45
+ALTA VERAPAZ,2 meses a < 1 año,Masculino,46
+ALTA VERAPAZ,1 a 4 años,Femenino,287
+ALTA VERAPAZ,1 a 4 años,Masculino,300
+ALTA VERAPAZ,5 a 9 años,Femenino,493
+ALTA VERAPAZ,5 a 9 años,Masculino,481
+ALTA VERAPAZ,10 a 14 años,Femenino,654
+ALTA VERAPAZ,10 a 14 años,Masculino,708
+ALTA VERAPAZ,15 a 19 años,Femenino,815
+ALTA VERAPAZ,15 a 19 años,Masculino,665
+ALTA VERAPAZ,20 a 24 años,Femenino,705
+ALTA VERAPAZ,20 a 24 años,Masculino,539
+ALTA VERAPAZ,25 a 39 años,Femenino,1807
+ALTA VERAPAZ,25 a 39 años,Masculino,1005
+ALTA VERAPAZ,40 a 49 años,Femenino,754
+ALTA VERAPAZ,40 a 49 años,Masculino,432
+ALTA VERAPAZ,50 a 59 años,Femenino,399
+ALTA VERAPAZ,50 a 59 años,Masculino,183
+ALTA VERAPAZ,60 a 64 años,Femenino,99
+ALTA VERAPAZ,60 a 64 años,Masculino,69
+ALTA VERAPAZ,65 a 69 años,Femenino,76
+ALTA VERAPAZ,65 a 69 años,Masculino,41
+ALTA VERAPAZ,70 años o más,Femenino,67
+ALTA VERAPAZ,70 años o más,Masculino,86
+BAJA VERAPAZ,2 meses a < 1 año,Femenino,43
+BAJA VERAPAZ,2 meses a < 1 año,Masculino,31
+BAJA VERAPAZ,1 a 4 años,Femenino,203
+BAJA VERAPAZ,1 a 4 años,Masculino,209
+BAJA VERAPAZ,5 a 9 años,Femenino,416
+BAJA VERAPAZ,5 a 9 años,Masculino,466
+BAJA VERAPAZ,10 a 14 años,Femenino,482
+BAJA VERAPAZ,10 a 14 años,Masculino,514
+BAJA VERAPAZ,15 a 19 años,Femenino,394
+BAJA VERAPAZ,15 a 19 años,Masculino,331
+BAJA VERAPAZ,20 a 24 años,Femenino,375
+BAJA VERAPAZ,20 a 24 años,Masculino,179
+BAJA VERAPAZ,25 a 39 años,Femenino,786
+BAJA VERAPAZ,25 a 39 años,Masculino,439
+BAJA VERAPAZ,40 a 49 años,Femenino,322
+BAJA VERAPAZ,40 a 49 años,Masculino,147
+BAJA VERAPAZ,50 a 59 años,Femenino,184
+BAJA VERAPAZ,50 a 59 años,Masculino,102
+BAJA VERAPAZ,60 a 64 años,Femenino,77
+BAJA VERAPAZ,60 a 64 años,Masculino,52
+BAJA VERAPAZ,65 a 69 años,Femenino,61
+BAJA VERAPAZ,65 a 69 años,Masculino,29
+BAJA VERAPAZ,70 años o más,Femenino,77
+BAJA VERAPAZ,70 años o más,Masculino,81
+CHIMALTENANGO,< 1 mes,Femenino,1
+CHIMALTENANGO,< 1 mes,Masculino,2
+CHIMALTENANGO,1 mes a < 2 meses,Femenino,1
+CHIMALTENANGO,2 meses a < 1 año,Femenino,15
+CHIMALTENANGO,2 meses a < 1 año,Masculino,20
+CHIMALTENANGO,1 a 4 años,Femenino,92
+CHIMALTENANGO,1 a 4 años,Masculino,121
+CHIMALTENANGO,5 a 9 años,Femenino,265
+CHIMALTENANGO,5 a 9 años,Masculino,339
+CHIMALTENANGO,10 a 14 años,Femenino,322
+CHIMALTENANGO,10 a 14 años,Masculino,408
+CHIMALTENANGO,15 a 19 años,Femenino,379
+CHIMALTENANGO,15 a 19 años,Masculino,297
+CHIMALTENANGO,20 a 24 años,Femenino,342
+CHIMALTENANGO,20 a 24 años,Masculino,224
+CHIMALTENANGO,25 a 39 años,Femenino,805
+CHIMALTENANGO,25 a 39 años,Masculino,441
+CHIMALTENANGO,40 a 49 años,Femenino,309
+CHIMALTENANGO,40 a 49 años,Masculino,177
+CHIMALTENANGO,50 a 59 años,Femenino,199
+CHIMALTENANGO,50 a 59 años,Masculino,70
+CHIMALTENANGO,60 a 64 años,Femenino,40
+CHIMALTENANGO,60 a 64 años,Masculino,31
+CHIMALTENANGO,65 a 69 años,Femenino,36
+CHIMALTENANGO,65 a 69 años,Masculino,20
+CHIMALTENANGO,70 años o más,Femenino,55
+CHIMALTENANGO,70 años o más,Masculino,46
+CHIQUIMULA,< 1 mes,Femenino,2
+CHIQUIMULA,< 1 mes,Masculino,1
+CHIQUIMULA,1 mes a < 2 meses,Femenino,1
+CHIQUIMULA,1 mes a < 2 meses,Masculino,3
+CHIQUIMULA,2 meses a < 1 año,Femenino,54
+CHIQUIMULA,2 meses a < 1 año,Masculino,46
+CHIQUIMULA,1 a 4 años,Femenino,213
+CHIQUIMULA,1 a 4 años,Masculino,248
+CHIQUIMULA,5 a 9 años,Femenino,357
+CHIQUIMULA,5 a 9 años,Masculino,298
+CHIQUIMULA,10 a 14 años,Femenino,286
+CHIQUIMULA,10 a 14 años,Masculino,358
+CHIQUIMULA,15 a 19 años,Femenino,220
+CHIQUIMULA,15 a 19 años,Masculino,166
+CHIQUIMULA,20 a 24 años,Femenino,208
+CHIQUIMULA,20 a 24 años,Masculino,142
+CHIQUIMULA,25 a 39 años,Femenino,488
+CHIQUIMULA,25 a 39 años,Masculino,229
+CHIQUIMULA,40 a 49 años,Femenino,207
+CHIQUIMULA,40 a 49 años,Masculino,101
+CHIQUIMULA,50 a 59 años,Femenino,115
+CHIQUIMULA,50 a 59 años,Masculino,73
+CHIQUIMULA,60 a 64 años,Femenino,36
+CHIQUIMULA,60 a 64 años,Masculino,30
+CHIQUIMULA,65 a 69 años,Femenino,39
+CHIQUIMULA,65 a 69 años,Masculino,23
+CHIQUIMULA,70 años o más,Femenino,46
+CHIQUIMULA,70 años o más,Masculino,39
+EL PETEN,< 1 mes,Femenino,1
+EL PETEN,< 1 mes,Masculino,1
+EL PETEN,1 mes a < 2 meses,Femenino,9
+EL PETEN,1 mes a < 2 meses,Masculino,4
+EL PETEN,2 meses a < 1 año,Femenino,72
+EL PETEN,2 meses a < 1 año,Masculino,96
+EL PETEN,1 a 4 años,Femenino,307
+EL PETEN,1 a 4 años,Masculino,326
+EL PETEN,5 a 9 años,Femenino,524
+EL PETEN,5 a 9 años,Masculino,513
+EL PETEN,10 a 14 años,Femenino,427
+EL PETEN,10 a 14 años,Masculino,439
+EL PETEN,15 a 19 años,Femenino,307
+EL PETEN,15 a 19 años,Masculino,245
+EL PETEN,20 a 24 años,Femenino,373
+EL PETEN,20 a 24 años,Masculino,206
+EL PETEN,25 a 39 años,Femenino,784
+EL PETEN,25 a 39 años,Masculino,485
+EL PETEN,40 a 49 años,Femenino,293
+EL PETEN,40 a 49 años,Masculino,175
+EL PETEN,50 a 59 años,Femenino,199
+EL PETEN,50 a 59 años,Masculino,107
+EL PETEN,60 a 64 años,Femenino,57
+EL PETEN,60 a 64 años,Masculino,41
+EL PETEN,65 a 69 años,Femenino,56
+EL PETEN,65 a 69 años,Masculino,39
+EL PETEN,70 años o más,Femenino,86
+EL PETEN,70 años o más,Masculino,83
+EL PROGRESO,< 1 mes,Femenino,1
+EL PROGRESO,< 1 mes,Masculino,1
+EL PROGRESO,1 mes a < 2 meses,Femenino,1
+EL PROGRESO,1 mes a < 2 meses,Masculino,1
+EL PROGRESO,2 meses a < 1 año,Femenino,56
+EL PROGRESO,2 meses a < 1 año,Masculino,75
+EL PROGRESO,1 a 4 años,Femenino,220
+EL PROGRESO,1 a 4 años,Masculino,222
+EL PROGRESO,5 a 9 años,Femenino,279
+EL PROGRESO,5 a 9 años,Masculino,277
+EL PROGRESO,10 a 14 años,Femenino,179
+EL PROGRESO,10 a 14 años,Masculino,232
+EL PROGRESO,15 a 19 años,Femenino,136
+EL PROGRESO,15 a 19 años,Masculino,85
+EL PROGRESO,20 a 24 años,Femenino,108
+EL PROGRESO,20 a 24 años,Masculino,53
+EL PROGRESO,25 a 39 años,Femenino,204
+EL PROGRESO,25 a 39 años,Masculino,94
+EL PROGRESO,40 a 49 años,Femenino,68
+EL PROGRESO,40 a 49 años,Masculino,51
+EL PROGRESO,50 a 59 años,Femenino,40
+EL PROGRESO,50 a 59 años,Masculino,27
+EL PROGRESO,60 a 64 años,Femenino,14
+EL PROGRESO,60 a 64 años,Masculino,15
+EL PROGRESO,65 a 69 años,Femenino,11
+EL PROGRESO,65 a 69 años,Masculino,8
+EL PROGRESO,70 años o más,Femenino,25
+EL PROGRESO,70 años o más,Masculino,23
+ESCUINTLA,< 1 mes,Femenino,7
+ESCUINTLA,< 1 mes,Masculino,5
+ESCUINTLA,1 mes a < 2 meses,Femenino,1
+ESCUINTLA,1 mes a < 2 meses,Masculino,7
+ESCUINTLA,2 meses a < 1 año,Femenino,175
+ESCUINTLA,2 meses a < 1 año,Masculino,200
+ESCUINTLA,1 a 4 años,Femenino,473
+ESCUINTLA,1 a 4 años,Masculino,491
+ESCUINTLA,5 a 9 años,Femenino,813
+ESCUINTLA,5 a 9 años,Masculino,817
+ESCUINTLA,10 a 14 años,Femenino,493
+ESCUINTLA,10 a 14 años,Masculino,559
+ESCUINTLA,15 a 19 años,Femenino,258
+ESCUINTLA,15 a 19 años,Masculino,250
+ESCUINTLA,20 a 24 años,Femenino,181
+ESCUINTLA,20 a 24 años,Masculino,146
+ESCUINTLA,25 a 39 años,Femenino,403
+ESCUINTLA,25 a 39 años,Masculino,240
+ESCUINTLA,40 a 49 años,Femenino,161
+ESCUINTLA,40 a 49 años,Masculino,71
+ESCUINTLA,50 a 59 años,Femenino,100
+ESCUINTLA,50 a 59 años,Masculino,49
+ESCUINTLA,60 a 64 años,Femenino,24
+ESCUINTLA,60 a 64 años,Masculino,18
+ESCUINTLA,65 a 69 años,Femenino,24
+ESCUINTLA,65 a 69 años,Masculino,13
+ESCUINTLA,70 años o más,Femenino,31
+ESCUINTLA,70 años o más,Masculino,24
+GUATEMALA,< 1 mes,Femenino,26
+GUATEMALA,< 1 mes,Masculino,15
+GUATEMALA,1 mes a < 2 meses,Femenino,7
+GUATEMALA,1 mes a < 2 meses,Masculino,20
+GUATEMALA,2 meses a < 1 año,Femenino,192
+GUATEMALA,2 meses a < 1 año,Masculino,213
+GUATEMALA,1 a 4 años,Femenino,893
+GUATEMALA,1 a 4 años,Masculino,1060
+GUATEMALA,5 a 9 años,Femenino,2465
+GUATEMALA,5 a 9 años,Masculino,2699
+GUATEMALA,10 a 14 años,Femenino,2167
+GUATEMALA,10 a 14 años,Masculino,2394
+GUATEMALA,15 a 19 años,Femenino,1583
+GUATEMALA,15 a 19 años,Masculino,1329
+GUATEMALA,20 a 24 años,Femenino,1242
+GUATEMALA,20 a 24 años,Masculino,816
+GUATEMALA,25 a 39 años,Femenino,2805
+GUATEMALA,25 a 39 años,Masculino,1611
+GUATEMALA,40 a 49 años,Femenino,1091
+GUATEMALA,40 a 49 años,Masculino,599
+GUATEMALA,50 a 59 años,Femenino,685
+GUATEMALA,50 a 59 años,Masculino,342
+GUATEMALA,60 a 64 años,Femenino,202
+GUATEMALA,60 a 64 años,Masculino,116
+GUATEMALA,65 a 69 años,Femenino,110
+GUATEMALA,65 a 69 años,Masculino,87
+GUATEMALA,70 años o más,Femenino,182
+GUATEMALA,70 años o más,Masculino,124
+HUEHUETENANGO,< 1 mes,Femenino,1
+HUEHUETENANGO,< 1 mes,Masculino,1
+HUEHUETENANGO,1 mes a < 2 meses,Masculino,1
+HUEHUETENANGO,2 meses a < 1 año,Femenino,19
+HUEHUETENANGO,2 meses a < 1 año,Masculino,26
+HUEHUETENANGO,1 a 4 años,Femenino,142
+HUEHUETENANGO,1 a 4 años,Masculino,171
+HUEHUETENANGO,5 a 9 años,Femenino,322
+HUEHUETENANGO,5 a 9 años,Masculino,309
+HUEHUETENANGO,10 a 14 años,Femenino,340
+HUEHUETENANGO,10 a 14 años,Masculino,369
+HUEHUETENANGO,15 a 19 años,Femenino,371
+HUEHUETENANGO,15 a 19 años,Masculino,248
+HUEHUETENANGO,20 a 24 años,Femenino,304
+HUEHUETENANGO,20 a 24 años,Masculino,164
+HUEHUETENANGO,25 a 39 años,Femenino,880
+HUEHUETENANGO,25 a 39 años,Masculino,417
+HUEHUETENANGO,40 a 49 años,Femenino,335
+HUEHUETENANGO,40 a 49 años,Masculino,175
+HUEHUETENANGO,50 a 59 años,Femenino,211
+HUEHUETENANGO,50 a 59 años,Masculino,118
+HUEHUETENANGO,60 a 64 años,Femenino,75
+HUEHUETENANGO,60 a 64 años,Masculino,48
+HUEHUETENANGO,65 a 69 años,Femenino,40
+HUEHUETENANGO,65 a 69 años,Masculino,39
+HUEHUETENANGO,70 años o más,Femenino,69
+HUEHUETENANGO,70 años o más,Masculino,53
+IZABAL,< 1 mes,Masculino,1
+IZABAL,1 mes a < 2 meses,Masculino,1
+IZABAL,2 meses a < 1 año,Femenino,17
+IZABAL,2 meses a < 1 año,Masculino,22
+IZABAL,1 a 4 años,Femenino,47
+IZABAL,1 a 4 años,Masculino,60
+IZABAL,5 a 9 años,Femenino,106
+IZABAL,5 a 9 años,Masculino,135
+IZABAL,10 a 14 años,Femenino,98
+IZABAL,10 a 14 años,Masculino,106
+IZABAL,15 a 19 años,Femenino,54
+IZABAL,15 a 19 años,Masculino,53
+IZABAL,20 a 24 años,Femenino,57
+IZABAL,20 a 24 años,Masculino,38
+IZABAL,25 a 39 años,Femenino,112
+IZABAL,25 a 39 años,Masculino,76
+IZABAL,40 a 49 años,Femenino,45
+IZABAL,40 a 49 años,Masculino,18
+IZABAL,50 a 59 años,Femenino,24
+IZABAL,50 a 59 años,Masculino,19
+IZABAL,60 a 64 años,Femenino,10
+IZABAL,60 a 64 años,Masculino,6
+IZABAL,65 a 69 años,Femenino,7
+IZABAL,65 a 69 años,Masculino,2
+IZABAL,70 años o más,Femenino,15
+IZABAL,70 años o más,Masculino,6
+JALAPA,< 1 mes,Masculino,1
+JALAPA,1 mes a < 2 meses,Femenino,3
+JALAPA,1 mes a < 2 meses,Masculino,2
+JALAPA,2 meses a < 1 año,Femenino,38
+JALAPA,2 meses a < 1 año,Masculino,48
+JALAPA,1 a 4 años,Femenino,210
+JALAPA,1 a 4 años,Masculino,239
+JALAPA,5 a 9 años,Femenino,434
+JALAPA,5 a 9 años,Masculino,425
+JALAPA,10 a 14 años,Femenino,448
+JALAPA,10 a 14 años,Masculino,410
+JALAPA,15 a 19 años,Femenino,314
+JALAPA,15 a 19 años,Masculino,232
+JALAPA,20 a 24 años,Femenino,286
+JALAPA,20 a 24 años,Masculino,142
+JALAPA,25 a 39 años,Femenino,625
+JALAPA,25 a 39 años,Masculino,268
+JALAPA,40 a 49 años,Femenino,207
+JALAPA,40 a 49 años,Masculino,113
+JALAPA,50 a 59 años,Femenino,154
+JALAPA,50 a 59 años,Masculino,65
+JALAPA,60 a 64 años,Femenino,55
+JALAPA,60 a 64 años,Masculino,31
+JALAPA,65 a 69 años,Femenino,33
+JALAPA,65 a 69 años,Masculino,16
+JALAPA,70 años o más,Femenino,57
+JALAPA,70 años o más,Masculino,52
+JUTIAPA,< 1 mes,Femenino,5
+JUTIAPA,< 1 mes,Masculino,9
+JUTIAPA,1 mes a < 2 meses,Femenino,3
+JUTIAPA,1 mes a < 2 meses,Masculino,5
+JUTIAPA,2 meses a < 1 año,Femenino,172
+JUTIAPA,2 meses a < 1 año,Masculino,165
+JUTIAPA,1 a 4 años,Femenino,839
+JUTIAPA,1 a 4 años,Masculino,889
+JUTIAPA,5 a 9 años,Femenino,1505
+JUTIAPA,5 a 9 años,Masculino,1510
+JUTIAPA,10 a 14 años,Femenino,1138
+JUTIAPA,10 a 14 años,Masculino,1254
+JUTIAPA,15 a 19 años,Femenino,702
+JUTIAPA,15 a 19 años,Masculino,524
+JUTIAPA,20 a 24 años,Femenino,539
+JUTIAPA,20 a 24 años,Masculino,266
+JUTIAPA,25 a 39 años,Femenino,978
+JUTIAPA,25 a 39 años,Masculino,560
+JUTIAPA,40 a 49 años,Femenino,376
+JUTIAPA,40 a 49 años,Masculino,230
+JUTIAPA,50 a 59 años,Femenino,249
+JUTIAPA,50 a 59 años,Masculino,134
+JUTIAPA,60 a 64 años,Femenino,104
+JUTIAPA,60 a 64 años,Masculino,63
+JUTIAPA,65 a 69 años,Femenino,62
+JUTIAPA,65 a 69 años,Masculino,64
+JUTIAPA,70 años o más,Femenino,132
+JUTIAPA,70 años o más,Masculino,125
+QUETZALTENANGO,< 1 mes,Femenino,6
+QUETZALTENANGO,< 1 mes,Masculino,9
+QUETZALTENANGO,1 mes a < 2 meses,Femenino,8
+QUETZALTENANGO,1 mes a < 2 meses,Masculino,17
+QUETZALTENANGO,2 meses a < 1 año,Femenino,262
+QUETZALTENANGO,2 meses a < 1 año,Masculino,365
+QUETZALTENANGO,1 a 4 años,Femenino,893
+QUETZALTENANGO,1 a 4 años,Masculino,945
+QUETZALTENANGO,5 a 9 años,Femenino,1170
+QUETZALTENANGO,5 a 9 años,Masculino,1237
+QUETZALTENANGO,10 a 14 años,Femenino,750
+QUETZALTENANGO,10 a 14 años,Masculino,876
+QUETZALTENANGO,15 a 19 años,Femenino,537
+QUETZALTENANGO,15 a 19 años,Masculino,376
+QUETZALTENANGO,20 a 24 años,Femenino,568
+QUETZALTENANGO,20 a 24 años,Masculino,235
+QUETZALTENANGO,25 a 39 años,Femenino,883
+QUETZALTENANGO,25 a 39 años,Masculino,464
+QUETZALTENANGO,40 a 49 años,Femenino,251
+QUETZALTENANGO,40 a 49 años,Masculino,139
+QUETZALTENANGO,50 a 59 años,Femenino,154
+QUETZALTENANGO,50 a 59 años,Masculino,83
+QUETZALTENANGO,60 a 64 años,Femenino,47
+QUETZALTENANGO,60 a 64 años,Masculino,41
+QUETZALTENANGO,65 a 69 años,Femenino,39
+QUETZALTENANGO,65 a 69 años,Masculino,30
+QUETZALTENANGO,70 años o más,Femenino,72
+QUETZALTENANGO,70 años o más,Masculino,58
+QUICHE,< 1 mes,Femenino,1
+QUICHE,1 mes a < 2 meses,Masculino,1
+QUICHE,2 meses a < 1 año,Femenino,24
+QUICHE,2 meses a < 1 año,Masculino,21
+QUICHE,1 a 4 años,Femenino,217
+QUICHE,1 a 4 años,Masculino,211
+QUICHE,5 a 9 años,Femenino,351
+QUICHE,5 a 9 años,Masculino,309
+QUICHE,10 a 14 años,Femenino,369
+QUICHE,10 a 14 años,Masculino,352
+QUICHE,15 a 19 años,Femenino,438
+QUICHE,15 a 19 años,Masculino,278
+QUICHE,20 a 24 años,Femenino,384
+QUICHE,20 a 24 años,Masculino,197
+QUICHE,25 a 39 años,Femenino,1014
+QUICHE,25 a 39 años,Masculino,488
+QUICHE,40 a 49 años,Femenino,419
+QUICHE,40 a 49 años,Masculino,177
+QUICHE,50 a 59 años,Femenino,274
+QUICHE,50 a 59 años,Masculino,180
+QUICHE,60 a 64 años,Femenino,82
+QUICHE,60 a 64 años,Masculino,59
+QUICHE,65 a 69 años,Femenino,58
+QUICHE,65 a 69 años,Masculino,40
+QUICHE,70 años o más,Femenino,114
+QUICHE,70 años o más,Masculino,94
+RETALHULEU,< 1 mes,Femenino,4
+RETALHULEU,< 1 mes,Masculino,1
+RETALHULEU,1 mes a < 2 meses,Femenino,2
+RETALHULEU,1 mes a < 2 meses,Masculino,2
+RETALHULEU,2 meses a < 1 año,Femenino,37
+RETALHULEU,2 meses a < 1 año,Masculino,53
+RETALHULEU,1 a 4 años,Femenino,193
+RETALHULEU,1 a 4 años,Masculino,231
+RETALHULEU,5 a 9 años,Femenino,402
+RETALHULEU,5 a 9 años,Masculino,370
+RETALHULEU,10 a 14 años,Femenino,299
+RETALHULEU,10 a 14 años,Masculino,289
+RETALHULEU,15 a 19 años,Femenino,182
+RETALHULEU,15 a 19 años,Masculino,129
+RETALHULEU,20 a 24 años,Femenino,157
+RETALHULEU,20 a 24 años,Masculino,103
+RETALHULEU,25 a 39 años,Femenino,319
+RETALHULEU,25 a 39 años,Masculino,154
+RETALHULEU,40 a 49 años,Femenino,98
+RETALHULEU,40 a 49 años,Masculino,64
+RETALHULEU,50 a 59 años,Femenino,64
+RETALHULEU,50 a 59 años,Masculino,53
+RETALHULEU,60 a 64 años,Femenino,16
+RETALHULEU,60 a 64 años,Masculino,19
+RETALHULEU,65 a 69 años,Femenino,11
+RETALHULEU,65 a 69 años,Masculino,13
+RETALHULEU,70 años o más,Femenino,13
+RETALHULEU,70 años o más,Masculino,11
+SACATEPEQUEZ,< 1 mes,Masculino,1
+SACATEPEQUEZ,2 meses a < 1 año,Femenino,12
+SACATEPEQUEZ,2 meses a < 1 año,Masculino,15
+SACATEPEQUEZ,1 a 4 años,Femenino,67
+SACATEPEQUEZ,1 a 4 años,Masculino,69
+SACATEPEQUEZ,5 a 9 años,Femenino,224
+SACATEPEQUEZ,5 a 9 años,Masculino,280
+SACATEPEQUEZ,10 a 14 años,Femenino,352
+SACATEPEQUEZ,10 a 14 años,Masculino,431
+SACATEPEQUEZ,15 a 19 años,Femenino,506
+SACATEPEQUEZ,15 a 19 años,Masculino,390
+SACATEPEQUEZ,20 a 24 años,Femenino,436
+SACATEPEQUEZ,20 a 24 años,Masculino,270
+SACATEPEQUEZ,25 a 39 años,Femenino,978
+SACATEPEQUEZ,25 a 39 años,Masculino,545
+SACATEPEQUEZ,40 a 49 años,Femenino,391
+SACATEPEQUEZ,40 a 49 años,Masculino,193
+SACATEPEQUEZ,50 a 59 años,Femenino,234
+SACATEPEQUEZ,50 a 59 años,Masculino,107
+SACATEPEQUEZ,60 a 64 años,Femenino,69
+SACATEPEQUEZ,60 a 64 años,Masculino,43
+SACATEPEQUEZ,65 a 69 años,Femenino,46
+SACATEPEQUEZ,65 a 69 años,Masculino,25
+SACATEPEQUEZ,70 años o más,Femenino,61
+SACATEPEQUEZ,70 años o más,Masculino,40
+SAN MARCOS,< 1 mes,Femenino,8
+SAN MARCOS,< 1 mes,Masculino,11
+SAN MARCOS,1 mes a < 2 meses,Femenino,6
+SAN MARCOS,1 mes a < 2 meses,Masculino,2
+SAN MARCOS,2 meses a < 1 año,Femenino,148
+SAN MARCOS,2 meses a < 1 año,Masculino,163
+SAN MARCOS,1 a 4 años,Femenino,551
+SAN MARCOS,1 a 4 años,Masculino,634
+SAN MARCOS,5 a 9 años,Femenino,794
+SAN MARCOS,5 a 9 años,Masculino,808
+SAN MARCOS,10 a 14 años,Femenino,646
+SAN MARCOS,10 a 14 años,Masculino,661
+SAN MARCOS,15 a 19 años,Femenino,401
+SAN MARCOS,15 a 19 años,Masculino,356
+SAN MARCOS,20 a 24 años,Femenino,332
+SAN MARCOS,20 a 24 años,Masculino,254
+SAN MARCOS,25 a 39 años,Femenino,641
+SAN MARCOS,25 a 39 años,Masculino,390
+SAN MARCOS,40 a 49 años,Femenino,239
+SAN MARCOS,40 a 49 años,Masculino,136
+SAN MARCOS,50 a 59 años,Femenino,122
+SAN MARCOS,50 a 59 años,Masculino,86
+SAN MARCOS,60 a 64 años,Femenino,31
+SAN MARCOS,60 a 64 años,Masculino,34
+SAN MARCOS,65 a 69 años,Femenino,23
+SAN MARCOS,65 a 69 años,Masculino,20
+SAN MARCOS,70 años o más,Femenino,39
+SAN MARCOS,70 años o más,Masculino,46
+SANTA ROSA,< 1 mes,Femenino,1
+SANTA ROSA,< 1 mes,Masculino,1
+SANTA ROSA,1 mes a < 2 meses,Femenino,1
+SANTA ROSA,1 mes a < 2 meses,Masculino,2
+SANTA ROSA,2 meses a < 1 año,Femenino,62
+SANTA ROSA,2 meses a < 1 año,Masculino,80
+SANTA ROSA,1 a 4 años,Femenino,327
+SANTA ROSA,1 a 4 años,Masculino,344
+SANTA ROSA,5 a 9 años,Femenino,604
+SANTA ROSA,5 a 9 años,Masculino,653
+SANTA ROSA,10 a 14 años,Femenino,438
+SANTA ROSA,10 a 14 años,Masculino,486
+SANTA ROSA,15 a 19 años,Femenino,313
+SANTA ROSA,15 a 19 años,Masculino,190
+SANTA ROSA,20 a 24 años,Femenino,316
+SANTA ROSA,20 a 24 años,Masculino,153
+SANTA ROSA,25 a 39 años,Femenino,553
+SANTA ROSA,25 a 39 años,Masculino,292
+SANTA ROSA,40 a 49 años,Femenino,196
+SANTA ROSA,40 a 49 años,Masculino,105
+SANTA ROSA,50 a 59 años,Femenino,137
+SANTA ROSA,50 a 59 años,Masculino,66
+SANTA ROSA,60 a 64 años,Femenino,42
+SANTA ROSA,60 a 64 años,Masculino,25
+SANTA ROSA,65 a 69 años,Femenino,37
+SANTA ROSA,65 a 69 años,Masculino,34
+SANTA ROSA,70 años o más,Femenino,42
+SANTA ROSA,70 años o más,Masculino,34
+SOLOLA,< 1 mes,Femenino,1
+SOLOLA,1 mes a < 2 meses,Masculino,2
+SOLOLA,2 meses a < 1 año,Femenino,6
+SOLOLA,2 meses a < 1 año,Masculino,10
+SOLOLA,1 a 4 años,Femenino,74
+SOLOLA,1 a 4 años,Masculino,77
+SOLOLA,5 a 9 años,Femenino,185
+SOLOLA,5 a 9 años,Masculino,259
+SOLOLA,10 a 14 años,Femenino,318
+SOLOLA,10 a 14 años,Masculino,380
+SOLOLA,15 a 19 años,Femenino,354
+SOLOLA,15 a 19 años,Masculino,326
+SOLOLA,20 a 24 años,Femenino,359
+SOLOLA,20 a 24 años,Masculino,234
+SOLOLA,25 a 39 años,Femenino,991
+SOLOLA,25 a 39 años,Masculino,522
+SOLOLA,40 a 49 años,Femenino,330
+SOLOLA,40 a 49 años,Masculino,210
+SOLOLA,50 a 59 años,Femenino,176
+SOLOLA,50 a 59 años,Masculino,109
+SOLOLA,60 a 64 años,Femenino,60
+SOLOLA,60 a 64 años,Masculino,29
+SOLOLA,65 a 69 años,Femenino,24
+SOLOLA,65 a 69 años,Masculino,21
+SOLOLA,70 años o más,Femenino,35
+SOLOLA,70 años o más,Masculino,30
+SUCHITEPEQUEZ,< 1 mes,Femenino,1
+SUCHITEPEQUEZ,< 1 mes,Masculino,2
+SUCHITEPEQUEZ,1 mes a < 2 meses,Masculino,1
+SUCHITEPEQUEZ,2 meses a < 1 año,Femenino,39
+SUCHITEPEQUEZ,2 meses a < 1 año,Masculino,50
+SUCHITEPEQUEZ,1 a 4 años,Femenino,243
+SUCHITEPEQUEZ,1 a 4 años,Masculino,255
+SUCHITEPEQUEZ,5 a 9 años,Femenino,456
+SUCHITEPEQUEZ,5 a 9 años,Masculino,488
+SUCHITEPEQUEZ,10 a 14 años,Femenino,445
+SUCHITEPEQUEZ,10 a 14 años,Masculino,497
+SUCHITEPEQUEZ,15 a 19 años,Femenino,314
+SUCHITEPEQUEZ,15 a 19 años,Masculino,276
+SUCHITEPEQUEZ,20 a 24 años,Femenino,207
+SUCHITEPEQUEZ,20 a 24 años,Masculino,103
+SUCHITEPEQUEZ,25 a 39 años,Femenino,300
+SUCHITEPEQUEZ,25 a 39 años,Masculino,181
+SUCHITEPEQUEZ,40 a 49 años,Femenino,106
+SUCHITEPEQUEZ,40 a 49 años,Masculino,79
+SUCHITEPEQUEZ,50 a 59 años,Femenino,74
+SUCHITEPEQUEZ,50 a 59 años,Masculino,38
+SUCHITEPEQUEZ,60 a 64 años,Femenino,11
+SUCHITEPEQUEZ,60 a 64 años,Masculino,14
+SUCHITEPEQUEZ,65 a 69 años,Femenino,13
+SUCHITEPEQUEZ,65 a 69 años,Masculino,11
+SUCHITEPEQUEZ,70 años o más,Femenino,20
+SUCHITEPEQUEZ,70 años o más,Masculino,18
+TOTONICAPAN,1 a 4 años,Masculino,1
+TOTONICAPAN,5 a 9 años,Femenino,3
+TOTONICAPAN,5 a 9 años,Masculino,1
+TOTONICAPAN,10 a 14 años,Femenino,2
+TOTONICAPAN,10 a 14 años,Masculino,3
+TOTONICAPAN,15 a 19 años,Masculino,2
+TOTONICAPAN,20 a 24 años,Femenino,5
+TOTONICAPAN,20 a 24 años,Masculino,2
+TOTONICAPAN,25 a 39 años,Femenino,2
+TOTONICAPAN,25 a 39 años,Masculino,8
+TOTONICAPAN,40 a 49 años,Femenino,2
+TOTONICAPAN,40 a 49 años,Masculino,1
+TOTONICAPAN,50 a 59 años,Femenino,1
+TOTONICAPAN,50 a 59 años,Masculino,2
+TOTONICAPAN,60 a 64 años,Femenino,1
+TOTONICAPAN,65 a 69 años,Femenino,1
+TOTONICAPAN,65 a 69 años,Masculino,2
+ZACAPA,< 1 mes,Femenino,3
+ZACAPA,1 mes a < 2 meses,Femenino,3
+ZACAPA,1 mes a < 2 meses,Masculino,1
+ZACAPA,2 meses a < 1 año,Femenino,43
+ZACAPA,2 meses a < 1 año,Masculino,74
+ZACAPA,1 a 4 años,Femenino,274
+ZACAPA,1 a 4 años,Masculino,288
+ZACAPA,5 a 9 años,Femenino,402
+ZACAPA,5 a 9 años,Masculino,443
+ZACAPA,10 a 14 años,Femenino,306
+ZACAPA,10 a 14 años,Masculino,342
+ZACAPA,15 a 19 años,Femenino,167
+ZACAPA,15 a 19 años,Masculino,143
+ZACAPA,20 a 24 años,Femenino,132
+ZACAPA,20 a 24 años,Masculino,92
+ZACAPA,25 a 39 años,Femenino,242
+ZACAPA,25 a 39 años,Masculino,150
+ZACAPA,40 a 49 años,Femenino,115
+ZACAPA,40 a 49 años,Masculino,67
+ZACAPA,50 a 59 años,Femenino,101
+ZACAPA,50 a 59 años,Masculino,48
+ZACAPA,60 a 64 años,Femenino,41
+ZACAPA,60 a 64 años,Masculino,26
+ZACAPA,65 a 69 años,Femenino,22
+ZACAPA,65 a 69 años,Masculino,19
+ZACAPA,70 años o más,Femenino,37
+ZACAPA,70 años o más,Masculino,30
