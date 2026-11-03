@@ -118,8 +118,24 @@ para conservarla, usar otra carpeta con `--salida`.
 La dispersión entre semillas caracteriza al optimizador y no representa
 incertidumbre epidemiológica ni intervalos de predicción de casos.
 
+## Experimentación y validación (Persona 4)
+
+```bash
+python -m src.experimentos --repeticiones 30 --procesos 2
+```
+
+Ejecuta tres condiciones con las mismas métricas: base (determinista),
+mejorada (PSO, 30 semillas) y sensibilidad con período infeccioso de 7 días
+(PSO, mismas 30 semillas). Además hace una sensibilidad local de ±10 % y ±20 %
+por parámetro y 14 verificaciones internas del modelo. Tarda unos 2–3 minutos.
+
+Resultados en `results/experimentos/`: `protocolo.json`, `corridas.csv`,
+`trayectorias.csv`, `resumen_condiciones.csv`, `diferencias_pareadas.csv`,
+`sensibilidad_local.csv` y `verificaciones.csv`.
+
 Documentación:
 
 - [Secciones 2 y 4 del informe](docs/informe_persona_3.md).
+- [Sección 5 del informe](docs/informe_persona_4.md).
 - [Guía de defensa y demostración](docs/guia_defensa_pso.md).
 - [Procedencia PAHO y metadatos pendientes](data/README.md).

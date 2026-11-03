@@ -1,0 +1,15 @@
+prueba,propiedad,valor_obtenido,tolerancia,cumple
+conservacion_base,max |S+E+I+R-N| (personas),7.450580596923828e-08,1e-06,True
+no_negatividad_base,"mínimo de S,E,I,R e incidencia",0.0,0.0,True
+acumulados_monotonos_base,mínimo incremento de C,2366.3581901846965,0.0,True
+reproducibilidad_base,max diferencia entre dos ejecuciones,0.0,0.0,True
+conservacion_mejorada,max |S+E+I+R-N| (personas),1.1548399925231934e-07,1e-06,True
+no_negatividad_mejorada,"mínimo de S,E,I,R e incidencia",0.0,0.0,True
+acumulados_monotonos_mejorada,mínimo incremento de C,1309.7103454575154,0.0,True
+reproducibilidad_mejorada,max diferencia entre dos ejecuciones,0.0,0.0,True
+convergencia_paso,max |paso 0.01 - paso 0.005| / pico,8.656766504915722e-13,1e-06,True
+equilibrio_libre_enfermedad,max casos semanales con E0=I0=0,0.0,0.0,True
+tamano_final_R0_2,|ln(S0/S_inf) - R0(N-S_inf)/N|,4.228595251731804e-11,0.0001,True
+umbral_R0_menor_1,casos semana 52 / casos semana 1,0.001405134687749046,1.0,True
+restricciones_candidatos,corridas que cumplen límites y controles,60.0,60.0,True
+replica_estudio_persona_3,max |RMSE propio - RMSE estudio previo| (30 semillas),0.0,1e-06,True

@@ -1,0 +1,88 @@
+{
+  "semilla_raiz": 2026,
+  "semillas": [
+    3339473683144027492,
+    12896123018795801922,
+    3415805307851894836,
+    10590585997771611084,
+    803937220440712645,
+    893553057947440943,
+    6345843214794302795,
+    6205002515639669006,
+    3503586935335095626,
+    10449896683196040385,
+    14180695335735989841,
+    5671711579944790672,
+    8559513791402008687,
+    15274929012149229050,
+    5158542499370955587,
+    13247999862744185798,
+    11488040240862787006,
+    10534625917175680984,
+    9216105475086227891,
+    1802922066941366083,
+    5073904599048842611,
+    12363927176062748131,
+    14957888783937661118,
+    5320512352402422098,
+    8978177992134011421,
+    7499647069760225079,
+    1676784031921914815,
+    7907394891234451150,
+    12263660003764748542,
+    2738556159410720970
+  ],
+  "repeticiones": 30,
+  "configuracion_pso": {
+    "particulas": 32,
+    "iteraciones": 100,
+    "inercia": 0.7,
+    "cognitivo": 1.5,
+    "social": 1.5,
+    "velocidad_max": 0.2,
+    "semilla": 2026,
+    "inicializacion": "estratificada",
+    "frontera": "reflexion"
+  },
+  "semanas_calibracion": 40,
+  "paso_busqueda": 0.1,
+  "paso_verificacion": 0.01,
+  "condiciones": {
+    "base": "Escenario sin calibrar, determinista (1 ejecución).",
+    "mejorada": "PSO, gamma=1.5555555555555556, 30 semillas.",
+    "sensibilidad_gamma": "PSO, gamma=1.0, mismas semillas.",
+    "sensibilidad_local": "Factores [0.8, 0.9, 1.1, 1.2] sobre ['beta_base', 'amplitud', 'sigma', 'gamma', 'expuestos', 'infectados']."
+  },
+  "seleccion_representativa": {
+    "semilla": 12363927176062748131,
+    "criterio": "Menor RMSE de calibración en 'mejorada'."
+  },
+  "parametros_fijos": {
+    "beta_base": 2.0,
+    "amplitud": 0.3,
+    "fase": 30.0,
+    "sigma": 1.0,
+    "gamma": 1.5555555555555556,
+    "poblacion": 17843132
+  },
+  "condiciones_iniciales": {
+    "expuestos": 1618,
+    "infectados": 1040,
+    "recuperados": 0
+  },
+  "datos": {
+    "archivo": "paho_dengue_guatemala_2024_epi_curve.csv",
+    "sha256": "e081c67fa6b199629011fa1e73041ff3b92647723ea19516b477a6c650b9c243",
+    "pais": "Guatemala",
+    "anio": 2024,
+    "observaciones": 52,
+    "url": "https://www.paho.org/en/arbo-portal/dengue-data-and-analysis/dengue-analysis-country",
+    "procedencia": "Enlace facilitado por el usuario el 2026-11-03; fecha de descarga original no registrada."
+  },
+  "versiones": {
+    "python": "3.14.6",
+    "numpy": "2.5.1",
+    "pandas": "3.1.0"
+  },
+  "codigo_sha256": "c4164127aa2e7d884bb920e480dc3332893fad45c2f69a8d7b99e51e2ff7b477"
+}
