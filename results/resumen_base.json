@@ -1,0 +1,30 @@
+{
+  "escenario": "base",
+  "calibrado": false,
+  "parametros": {
+    "beta_base": 2.0,
+    "amplitud": 0.3,
+    "fase": 30.0,
+    "sigma": 1.0,
+    "gamma": 1.5555555555555556,
+    "poblacion": 17843132
+  },
+  "condiciones_iniciales": {
+    "expuestos": 1618,
+    "infectados": 1040,
+    "recuperados": 0
+  },
+  "semanas": 52,
+  "paso": 0.01,
+  "metricas": {
+    "total_simulado": 6801065,
+    "total_observado": 188585,
+    "mae": 127759.71132160371,
+    "rmse": 284572.37513503403,
+    "semana_pico_simulada": 50,
+    "casos_pico_simulados": 846993.8304003766,
+    "semana_pico_observada": 39,
+    "casos_pico_observados": 7560
+  },
+  "nota": "Escenario base sin calibración. No debe interpretarse como un ajuste epidemiológico."
+}
