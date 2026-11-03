@@ -1,0 +1,75 @@
+{
+  "objetivo": "Minimizar RMSE semanal en calibración; no reducir contagios reales.",
+  "configuracion_pso": {
+    "particulas": 24,
+    "iteraciones": 80,
+    "inercia": 0.7,
+    "cognitivo": 1.5,
+    "social": 1.5,
+    "velocidad_max": 0.2,
+    "semilla": 2026
+  },
+  "limites": {
+    "beta_base": [
+      0.1,
+      4.0
+    ],
+    "amplitud": [
+      0.0,
+      0.95
+    ],
+    "fase": [
+      0.0,
+      52.0
+    ]
+  },
+  "parametros_base": {
+    "beta_base": 2.0,
+    "amplitud": 0.3,
+    "fase": 30.0,
+    "sigma": 1.0,
+    "gamma": 1.5555555555555556,
+    "poblacion": 17843132
+  },
+  "parametros_mejorados": {
+    "beta_base": 1.6663495140150963,
+    "amplitud": 0.0,
+    "fase": 36.96285117951481,
+    "sigma": 1.0,
+    "gamma": 1.5555555555555556,
+    "poblacion": 17843132
+  },
+  "condiciones_iniciales": {
+    "expuestos": 1618,
+    "infectados": 1040,
+    "recuperados": 0
+  },
+  "semanas": 52,
+  "semanas_calibracion": 40,
+  "paso_busqueda": 0.1,
+  "paso_verificacion": 0.01,
+  "rmse_busqueda": 1020.5910994115607,
+  "rmse_verificacion_calibracion": 1020.5910994053307,
+  "diferencia_rmse_por_paso": -6.229925020306837e-09,
+  "reduccion_rmse_calibracion": 16421.497095422,
+  "reduccion_rmse_calibracion_pct": 94.14868742775879,
+  "candidatos_invalidos": 0,
+  "parametros_en_limite": [
+    "amplitud"
+  ],
+  "restricciones_verificadas": true,
+  "versiones": {
+    "python": "3.13.7",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5"
+  },
+  "nota": "Una ejecución exploratoria. No prueba robustez entre semillas ni óptimo global.",
+  "datos_referencia": {
+    "archivo": "paho_dengue_guatemala_2024_epi_curve.csv",
+    "sha256": "e081c67fa6b199629011fa1e73041ff3b92647723ea19516b477a6c650b9c243",
+    "pais": "Guatemala",
+    "anio": 2024,
+    "observaciones": 52,
+    "nota": "Archivo del repositorio; procedencia externa pendiente de documentar por el equipo."
+  }
+}

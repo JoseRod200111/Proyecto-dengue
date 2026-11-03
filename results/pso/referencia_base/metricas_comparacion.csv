@@ -1,0 +1,2 @@
+escenario,total_observado,total_simulado,diferencia_total,diferencia_total_pct,mae,rmse,mape,semana_pico_observada,semana_pico_simulada,error_semana_pico,correlacion
+base,188585.0,6801065.119530732,6612480.119530732,3506.3658931148984,127759.71132160371,284572.37513503403,8787.955639648044,39.0,50.0,11.0,-0.2549549836338855

@@ -1,0 +1,69 @@
+{
+  "semillas": [
+    3339473683144027492,
+    12896123018795801922,
+    3415805307851894836,
+    10590585997771611084,
+    803937220440712645,
+    893553057947440943,
+    6345843214794302795,
+    6205002515639669006,
+    3503586935335095626,
+    10449896683196040385,
+    14180695335735989841,
+    5671711579944790672,
+    8559513791402008687,
+    15274929012149229050,
+    5158542499370955587,
+    13247999862744185798,
+    11488040240862787006,
+    10534625917175680984,
+    9216105475086227891,
+    1802922066941366083,
+    5073904599048842611,
+    12363927176062748131,
+    14957888783937661118,
+    5320512352402422098,
+    8978177992134011421,
+    7499647069760225079,
+    1676784031921914815,
+    7907394891234451150,
+    12263660003764748542,
+    2738556159410720970
+  ],
+  "configuracion": {
+    "particulas": 32,
+    "iteraciones": 100,
+    "inercia": 0.7,
+    "cognitivo": 1.5,
+    "social": 1.5,
+    "velocidad_max": 0.2,
+    "semilla": 2026,
+    "inicializacion": "estratificada",
+    "frontera": "reflexion"
+  },
+  "semanas_calibracion": 40,
+  "paso_busqueda": 0.1,
+  "datos": {
+    "archivo": "paho_dengue_guatemala_2024_epi_curve.csv",
+    "sha256": "e081c67fa6b199629011fa1e73041ff3b92647723ea19516b477a6c650b9c243",
+    "pais": "Guatemala",
+    "anio": 2024,
+    "observaciones": 52,
+    "url": "https://www.paho.org/en/arbo-portal/dengue-data-and-analysis/dengue-analysis-country",
+    "procedencia": "Enlace facilitado por el usuario el 2026-11-03; fecha de descarga original no registrada."
+  },
+  "condiciones": [
+    "pso",
+    "pso_presupuesto_reducido",
+    "aleatoria"
+  ],
+  "fuentes_codigo_sha256": {
+    "optimizacion.py": "82c4d9d78bdc5ea3dc309050b36857d242a3b9dc6ca44b8ee248d3b831dfdbf1",
+    "evaluacion_pso.py": "5d2d15e84117e352246c81232bf378d38e7dcfa639c735b4bf485e205782b3b7",
+    "estudio_pso.py": "4719f37c88172406d3e0fa567296f5bb18e93c7cf9674880b9fceca7748882ec",
+    "simulacion.py": "376b97e77c8c29bfaf4eaeeb29d3ae0b848cfae592812bf5ae5f1754a62e4a52",
+    "modelo_seir.py": "6871373ebd3266de9366d7a30da3b629fea288209cd87d733ef87c53017f61fc",
+    "escenarios.py": "aa310b3ab020cbdf057ef56e077dbf9e4988c1ff2f113ccb7c789a9d8701db61"
+  }
+}
