@@ -75,6 +75,18 @@ R0_BASE = 0
 # VALIDACIÓN DE PARÁMETROS
 # ============================================================
 
+def validar_finito(
+    valor,
+    nombre
+):
+    """Rechaza NaN, infinitos y valores no numéricos."""
+
+    if not math.isfinite(valor):
+        raise ValueError(
+            f"{nombre} debe ser un número finito."
+        )
+
+
 def validar_parametros(
     beta,
     sigma,
@@ -97,6 +109,26 @@ def validar_parametros(
     poblacion:
         Población total utilizada en el modelo.
     """
+
+    validar_finito(
+        poblacion,
+        "La población"
+    )
+
+    validar_finito(
+        beta,
+        "beta"
+    )
+
+    validar_finito(
+        sigma,
+        "sigma"
+    )
+
+    validar_finito(
+        gamma,
+        "gamma"
+    )
 
     if poblacion <= 0:
         raise ValueError(
@@ -145,6 +177,26 @@ def crear_estado_inicial(
     C no representa un compartimento de población.
     Se utiliza únicamente para medir incidencia acumulada.
     """
+
+    validar_finito(
+        poblacion,
+        "La población"
+    )
+
+    validar_finito(
+        expuestos_iniciales,
+        "Los expuestos iniciales"
+    )
+
+    validar_finito(
+        infectados_iniciales,
+        "Los infectados iniciales"
+    )
+
+    validar_finito(
+        recuperados_iniciales,
+        "Los recuperados iniciales"
+    )
 
     if poblacion <= 0:
         raise ValueError(
@@ -237,6 +289,36 @@ def validar_estado(
 
     S, E, I, R, C = estado
 
+    validar_finito(
+        S,
+        "S"
+    )
+
+    validar_finito(
+        E,
+        "E"
+    )
+
+    validar_finito(
+        I,
+        "I"
+    )
+
+    validar_finito(
+        R,
+        "R"
+    )
+
+    validar_finito(
+        C,
+        "C"
+    )
+
+    validar_finito(
+        poblacion,
+        "La población"
+    )
+
     if S < 0:
         raise ValueError(
             "S no puede ser negativo."
@@ -317,6 +399,26 @@ def beta_estacional(
     fase:
         Desplaza temporalmente el patrón estacional.
     """
+
+    validar_finito(
+        semana,
+        "La semana"
+    )
+
+    validar_finito(
+        beta_base,
+        "beta_base"
+    )
+
+    validar_finito(
+        amplitud,
+        "La amplitud"
+    )
+
+    validar_finito(
+        fase,
+        "La fase"
+    )
 
     if beta_base <= 0:
         raise ValueError(
