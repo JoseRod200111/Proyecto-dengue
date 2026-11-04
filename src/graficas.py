@@ -69,3 +69,18 @@ def sensibilidad_beta(semanas, observados, curvas, directorio):
     eje.grid(alpha=0.3)
 
     return _guardar(figura, directorio, "grafica_sensibilidad_beta.png")
+
+
+def sensibilidad_local(tabla, directorio):
+    cambio = tabla.pivot(index="parametro", columns="factor", values="cambio_total_pct")
+
+    figura, eje = plt.subplots(figsize=(9, 5))
+    cambio.plot.barh(ax=eje)
+    eje.set_xscale("symlog", linthresh=10)
+    eje.set_xlabel("Cambio en casos totales simulados (%, escala symlog)")
+    eje.set_ylabel("")
+    eje.set_title("Sensibilidad local de la solución calibrada")
+    eje.legend(title="Factor")
+    eje.grid(alpha=0.3, axis="x")
+
+    return _guardar(figura, directorio, "grafica_sensibilidad_local.png")

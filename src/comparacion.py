@@ -12,6 +12,7 @@ from src.simulacion import simular_seir
 
 FACTORES_SENSIBILIDAD = (0.8, 0.9, 1.0, 1.1, 1.2)
 ARCHIVO_MEJORADA = "simulacion_mejorada.csv"
+ARCHIVO_SENSIBILIDAD = RESULTS_DIR / "experimentos" / "sensibilidad_local.csv"
 
 
 def calcular_metricas(observados, simulados):
@@ -110,6 +111,11 @@ def main(directorio=RESULTS_DIR):
         graficas.comparar_escenarios(semanas, observados, escenarios, metricas, directorio),
         graficas.sensibilidad_beta(semanas, observados, sensibilidad, directorio),
     ]
+
+    if ARCHIVO_SENSIBILIDAD.exists():
+        figuras.append(
+            graficas.sensibilidad_local(pd.read_csv(ARCHIVO_SENSIBILIDAD), directorio)
+        )
 
     print(metricas.round(2).T.to_string())
     print()
