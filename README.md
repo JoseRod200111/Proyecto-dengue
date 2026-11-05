@@ -150,3 +150,19 @@ python -m src.comparacion
 Compara PAHO, escenario base y mejorado (`results/simulacion_mejorada.csv`) y
 genera `metricas_comparacion.csv`, `comparacion_semanal.csv` y las gráficas
 `grafica_*.png` en `results/`.
+
+## Reproducción completa
+
+Desde la raíz del repositorio, en este orden (el estudio PSO y los
+experimentos tardan unos minutos cada uno):
+
+```bash
+pip install -r requirements.txt
+python -m src.datos
+python -m src.main
+python -m src.estudio_pso --repeticiones 30 --procesos 3
+python -m src.reporte_pso
+python -m src.experimentos --repeticiones 30 --procesos 2
+python -m src.comparacion
+pytest
+```

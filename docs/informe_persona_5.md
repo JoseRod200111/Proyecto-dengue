@@ -51,8 +51,7 @@ mejorada se mantiene en cientos a pocos miles. MAE y RMSE caen unas 224 y 375
 veces respectivamente.
 
 **Sensibilidad** (`grafica_sensibilidad_local.png`, a partir de los
-experimentos de la Persona 4; y `grafica_sensibilidad_beta.png`, un barrido de
-β sobre el base). La solución calibrada es muy sensible a β y γ: un cambio de
+experimentos de la Persona 4). La solución calibrada es muy sensible a β y γ: un cambio de
 ±10 % en cualquiera de los dos modifica los casos totales entre −81 % y
 +610 %. Amplitud, σ y las condiciones iniciales son mucho menos influyentes
 (cambios totales de hasta ±24 % con ±20 %).
