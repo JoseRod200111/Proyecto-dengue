@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src.datos import cargar_datos_paho, validar_datos_paho
+from src.datos import SEMANAS_CALIBRACION, cargar_paho_validado
 from src.optimizacion import (ConfiguracionPSO, calibrar_seir, guardar_calibracion,
                               metadatos_fuente)
 
@@ -122,7 +122,7 @@ def main():
     parser.add_argument("--procesos", type=int, default=2)
     parser.add_argument("--particulas", type=int, default=32)
     parser.add_argument("--iteraciones", type=int, default=100)
-    parser.add_argument("--semanas-calibracion", type=int, default=40)
+    parser.add_argument("--semanas-calibracion", type=int, default=SEMANAS_CALIBRACION)
     parser.add_argument("--paso-busqueda", type=float, default=0.1)
     parser.add_argument("--reanudar", action="store_true")
     parser.add_argument("--salida", type=Path, default=Path("results/pso/estudio"))
@@ -131,8 +131,7 @@ def main():
         parser.error("procesos debe ser >= 1")
     semillas = generar_semillas(args.semilla_raiz, args.repeticiones)
     config = ConfiguracionPSO(particulas=args.particulas, iteraciones=args.iteraciones)
-    pais, datos = cargar_datos_paho()
-    validar_datos_paho(pais, datos)
+    datos = cargar_paho_validado()
     observados = datos["casos"].to_numpy(dtype=float)
     # La firma impide mezclar cachés de algoritmos, datos o protocolos distintos.
     archivos = ("optimizacion.py", "evaluacion_pso.py", "estudio_pso.py",

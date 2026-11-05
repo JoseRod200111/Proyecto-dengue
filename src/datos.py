@@ -9,6 +9,9 @@ import pandas as pd
 # ============================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+RESULTS_DIR = BASE_DIR / "results"
+
+SEMANAS_CALIBRACION = 40
 
 RUTA_PAHO = (
     BASE_DIR
@@ -1020,17 +1023,19 @@ def guardar_datos_procesados(
     )
 
 
+def cargar_paho_validado():
+    pais, datos_paho = cargar_datos_paho()
+    validar_datos_paho(pais, datos_paho)
+
+    return datos_paho
+
+
 # ============================================================
 # PROGRAMA PRINCIPAL
 # ============================================================
 
 def main():
-    pais, datos_paho = cargar_datos_paho()
-
-    validar_datos_paho(
-        pais,
-        datos_paho
-    )
+    datos_paho = cargar_paho_validado()
 
     guardar_datos_procesados(
         datos_paho

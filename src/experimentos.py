@@ -10,7 +10,7 @@ import platform
 import numpy as np
 import pandas as pd
 
-from src.datos import cargar_datos_paho, validar_datos_paho
+from src.datos import BASE_DIR, SEMANAS_CALIBRACION, cargar_paho_validado
 from src.escenarios import crear_escenario_base
 from src.estudio_pso import generar_semillas
 from src.optimizacion import (LIMITES, NOMBRES, ConfiguracionPSO, calibrar_seir,
@@ -18,7 +18,6 @@ from src.optimizacion import (LIMITES, NOMBRES, ConfiguracionPSO, calibrar_seir,
 from src.simulacion import simular_seir
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 SALIDA = BASE_DIR / "results" / "experimentos"
 ESTUDIO_PERSONA_3 = BASE_DIR / "results" / "pso" / "estudio" / "ejecuciones.csv"
 GAMMA_SENSIBILIDAD = 1.0  # Período infeccioso de 7 días, en semanas^-1.
@@ -313,7 +312,7 @@ def main(argv=None):
     parser.add_argument("--procesos", type=int, default=2)
     parser.add_argument("--particulas", type=int, default=32)
     parser.add_argument("--iteraciones", type=int, default=100)
-    parser.add_argument("--semanas-calibracion", type=int, default=40)
+    parser.add_argument("--semanas-calibracion", type=int, default=SEMANAS_CALIBRACION)
     parser.add_argument("--paso-busqueda", type=float, default=0.1)
     parser.add_argument("--gamma-sensibilidad", type=float, default=GAMMA_SENSIBILIDAD)
     parser.add_argument("--salida", type=Path, default=SALIDA)
@@ -323,8 +322,7 @@ def main(argv=None):
     if args.procesos < 1:
         parser.error("procesos debe ser >= 1")
 
-    pais, datos = cargar_datos_paho()
-    validar_datos_paho(pais, datos)
+    datos = cargar_paho_validado()
     observados = datos["casos"].to_numpy(dtype=float)
     semillas = generar_semillas(args.semilla_raiz, args.repeticiones)
     config = ConfiguracionPSO(particulas=args.particulas, iteraciones=args.iteraciones)

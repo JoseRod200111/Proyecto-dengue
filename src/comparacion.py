@@ -1,4 +1,3 @@
-from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -6,11 +5,10 @@ import pandas as pd
 
 from src import datos, graficas
 from src.escenarios import crear_escenario_base
-from src.main import RESULTS_DIR
+from src.datos import RESULTS_DIR
 from src.simulacion import simular_seir
 
 
-FACTORES_SENSIBILIDAD = (0.8, 0.9, 1.0, 1.1, 1.2)
 ARCHIVO_MEJORADA = "simulacion_mejorada.csv"
 ARCHIVO_SENSIBILIDAD = RESULTS_DIR / "experimentos" / "sensibilidad_local.csv"
 
@@ -60,24 +58,6 @@ def tabla_semanal(semanas, observados, escenarios):
     return tabla
 
 
-def barrido_beta(escenario_base, factores=FACTORES_SENSIBILIDAD):
-    curvas = {}
-
-    for factor in factores:
-        parametros = replace(
-            escenario_base.parametros,
-            beta_base=escenario_base.parametros.beta_base * factor,
-        )
-        escenario = replace(
-            escenario_base,
-            nombre=f"beta x{factor}",
-            parametros=parametros,
-        )
-        curvas[factor] = simular_seir(escenario)["casos_semana"].to_numpy()
-
-    return curvas
-
-
 def cargar_escenarios(directorio):
     escenarios = {"base": simular_seir(crear_escenario_base())}
     ruta = Path(directorio) / ARCHIVO_MEJORADA
@@ -92,8 +72,7 @@ def main(directorio=RESULTS_DIR):
     directorio = Path(directorio)
     directorio.mkdir(parents=True, exist_ok=True)
 
-    pais, datos_paho = datos.cargar_datos_paho()
-    datos.validar_datos_paho(pais, datos_paho)
+    datos_paho = datos.cargar_paho_validado()
 
     semanas = datos_paho["semana"].to_numpy()
     observados = datos_paho["casos"].to_numpy(dtype=float)
@@ -101,7 +80,6 @@ def main(directorio=RESULTS_DIR):
     escenarios = cargar_escenarios(directorio)
     metricas = tabla_comparativa(observados, escenarios)
     semanal = tabla_semanal(semanas, observados, escenarios)
-    sensibilidad = barrido_beta(crear_escenario_base())
 
     metricas.to_csv(directorio / "metricas_comparacion.csv")
     semanal.to_csv(directorio / "comparacion_semanal.csv", index=False)
@@ -109,7 +87,6 @@ def main(directorio=RESULTS_DIR):
     figuras = [
         graficas.curva_epidemica(semanas, observados, escenarios, directorio),
         graficas.comparar_escenarios(semanas, observados, escenarios, metricas, directorio),
-        graficas.sensibilidad_beta(semanas, observados, sensibilidad, directorio),
     ]
 
     if ARCHIVO_SENSIBILIDAD.exists():

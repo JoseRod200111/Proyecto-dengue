@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from src.datos import cargar_datos_paho, validar_datos_paho
+from src.datos import cargar_paho_validado
 from src.escenarios import crear_escenario_base
 from src.simulacion import simular_seir
 
@@ -36,8 +36,7 @@ def generar_reporte(directorio):
     metricas = pd.read_csv(directorio / "seleccion/metricas_calibracion_pso.csv")
     parametros = json.loads((directorio / "seleccion/calibracion_pso.json").read_text(encoding="utf-8"))
     corte = protocolo["semanas_calibracion"]
-    pais, datos = cargar_datos_paho()
-    validar_datos_paho(pais, datos)
+    datos = cargar_paho_validado()
     base = simular_seir(crear_escenario_base())
     observados = datos["casos"].to_numpy()
     semanas = datos["semana"].to_numpy()

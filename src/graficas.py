@@ -54,23 +54,6 @@ def comparar_escenarios(semanas, observados, escenarios, metricas, directorio):
     return _guardar(figura, directorio, "grafica_comparacion_escenarios.png")
 
 
-def sensibilidad_beta(semanas, observados, curvas, directorio):
-    figura, eje = plt.subplots(figsize=(9, 5))
-    eje.plot(semanas, observados, "k-o", ms=3, label="Observados (PAHO)")
-
-    for factor, casos in curvas.items():
-        eje.plot(semanas, casos, label=f"β × {factor}")
-
-    eje.set_yscale("log")
-    eje.set_xlabel("Semana epidemiológica 2024")
-    eje.set_ylabel("Casos semanales (escala log)")
-    eje.set_title("Sensibilidad del escenario base a β")
-    eje.legend()
-    eje.grid(alpha=0.3)
-
-    return _guardar(figura, directorio, "grafica_sensibilidad_beta.png")
-
-
 def sensibilidad_local(tabla, directorio):
     cambio = tabla.pivot(index="parametro", columns="factor", values="cambio_total_pct")
 

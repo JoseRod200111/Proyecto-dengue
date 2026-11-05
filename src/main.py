@@ -4,12 +4,9 @@ from pathlib import Path
 import pandas as pd
 
 from src import datos
+from src.datos import RESULTS_DIR
 from src.escenarios import crear_escenario_base
 from src.simulacion import simular_seir
-
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-RESULTS_DIR = BASE_DIR / "results"
 
 
 # ============================================================
@@ -186,12 +183,7 @@ def guardar_resultados(
 # ============================================================
 
 def main():
-    pais, datos_paho = datos.cargar_datos_paho()
-
-    datos.validar_datos_paho(
-        pais,
-        datos_paho
-    )
+    datos_paho = datos.cargar_paho_validado()
 
     escenario = crear_escenario_base()
 

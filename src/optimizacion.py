@@ -11,7 +11,7 @@ from time import perf_counter
 import numpy as np
 import pandas as pd
 
-from src.datos import RUTA_PAHO, cargar_datos_paho, validar_datos_paho
+from src.datos import RESULTS_DIR, RUTA_PAHO, SEMANAS_CALIBRACION, cargar_paho_validado
 from src.escenarios import crear_escenario_base
 from src.evaluacion_pso import incidencia_lote
 from src.simulacion import obtener_pasos_por_semana, simular_seir
@@ -204,7 +204,7 @@ def metricas_error(observados, simulados):
 
 
 def calibrar_seir(observados, base=None, configuracion=None, limites=LIMITES,
-                  semanas_calibracion=40, paso_busqueda=0.1, evaluador="lote", metodo="pso"):
+                  semanas_calibracion=SEMANAS_CALIBRACION, paso_busqueda=0.1, evaluador="lote", metodo="pso"):
     """Ajusta solo el prefijo temporal; evalúa el resto sin volver a optimizar.
 
     Busca con paso configurable y vuelve a simular el ganador con el paso del
@@ -345,7 +345,7 @@ def main():
     parser.add_argument("--particulas", type=int, default=32)
     parser.add_argument("--iteraciones", type=int, default=100)
     parser.add_argument("--semilla", type=int, default=2026)
-    parser.add_argument("--semanas-calibracion", type=int, default=40)
+    parser.add_argument("--semanas-calibracion", type=int, default=SEMANAS_CALIBRACION)
     parser.add_argument("--paso-busqueda", type=float, default=0.1)
     parser.add_argument("--evaluador", choices=("lote", "canonico"), default="lote")
     parser.add_argument("--inercia", type=float, default=0.7)
@@ -355,10 +355,9 @@ def main():
     parser.add_argument("--frontera", choices=("reflexion", "proyeccion"), default="reflexion")
     parser.add_argument("--inicializacion", choices=("estratificada", "uniforme"), default="estratificada")
     parser.add_argument("--limites", type=Path, help="JSON con beta_base, amplitud y fase: [inferior, superior].")
-    parser.add_argument("--salida", type=Path, default=Path(__file__).resolve().parent.parent / "results")
+    parser.add_argument("--salida", type=Path, default=RESULTS_DIR)
     args = parser.parse_args()
-    pais, datos = cargar_datos_paho()
-    validar_datos_paho(pais, datos)
+    datos = cargar_paho_validado()
     config = ConfiguracionPSO(
         particulas=args.particulas, iteraciones=args.iteraciones, semilla=args.semilla,
         inercia=args.inercia, cognitivo=args.cognitivo, social=args.social,
