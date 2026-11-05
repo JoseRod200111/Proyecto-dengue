@@ -137,5 +137,16 @@ Documentación:
 
 - [Secciones 2 y 4 del informe](docs/informe_persona_3.md).
 - [Sección 5 del informe](docs/informe_persona_4.md).
+- [Secciones 6 y 7 del informe](docs/informe_persona_5.md).
 - [Guía de defensa y demostración](docs/guia_defensa_pso.md).
 - [Procedencia PAHO y metadatos pendientes](data/README.md).
+
+## Comparación con datos reales (Persona 5)
+
+```bash
+python -m src.comparacion
+```
+
+Compara PAHO, escenario base y mejorado (`results/simulacion_mejorada.csv`) y
+genera `metricas_comparacion.csv`, `comparacion_semanal.csv` y las gráficas
+`grafica_*.png` en `results/`.
