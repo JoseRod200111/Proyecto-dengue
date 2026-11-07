@@ -51,7 +51,7 @@
     "anio": 2024,
     "observaciones": 52,
     "url": "https://www.paho.org/en/arbo-portal/dengue-data-and-analysis/dengue-analysis-country",
-    "procedencia": "Enlace facilitado por el usuario el 2026-11-03; fecha de descarga original no registrada."
+    "procedencia": "Portal PAHO/OPS registrado por el equipo el 2026-11-03; fecha de descarga original no registrada."
   },
   "condiciones": [
     "pso",
@@ -59,11 +59,11 @@
     "aleatoria"
   ],
   "fuentes_codigo_sha256": {
-    "optimizacion.py": "82c4d9d78bdc5ea3dc309050b36857d242a3b9dc6ca44b8ee248d3b831dfdbf1",
+    "optimizacion.py": "61219d12bcd6b04f8cbf4215c1995a4faf7b75ca71e62c5319170b031f696dbb",
     "evaluacion_pso.py": "5d2d15e84117e352246c81232bf378d38e7dcfa639c735b4bf485e205782b3b7",
-    "estudio_pso.py": "4719f37c88172406d3e0fa567296f5bb18e93c7cf9674880b9fceca7748882ec",
-    "simulacion.py": "376b97e77c8c29bfaf4eaeeb29d3ae0b848cfae592812bf5ae5f1754a62e4a52",
-    "modelo_seir.py": "6871373ebd3266de9366d7a30da3b629fea288209cd87d733ef87c53017f61fc",
-    "escenarios.py": "aa310b3ab020cbdf057ef56e077dbf9e4988c1ff2f113ccb7c789a9d8701db61"
+    "estudio_pso.py": "a22b39f93ab3810251f3c45554375f8a866b5edfdcbde8c8f3f93d9c738f5b71",
+    "simulacion.py": "a908e15e92e16a252dab345667a0888698ed62edabcd57de438ead47774d49b4",
+    "modelo_seir.py": "326c3036f02c78407e11b7ba423cf717b1fe03658592902801745e293153d711",
+    "escenarios.py": "d70a96114ad43eeecfc2e06e313ec4846021d4cae1eb644ec3e12a214ac9a950"
   }
 }

@@ -70,13 +70,13 @@
     "casos_acumulados_monotonos": true,
     "lote_coincide_con_canonico": true
   },
-  "segundos": 18.331095300000015,
+  "segundos": 6.490494599998783,
   "parametros_en_limite": [],
   "restricciones_verificadas": true,
   "versiones": {
     "python": "3.13.7",
-    "numpy": "2.5.1",
-    "pandas": "3.0.5"
+    "numpy": "2.5.4",
+    "pandas": "3.1.1"
   },
   "nota": "Una ejecución exploratoria. No prueba robustez entre semillas ni óptimo global.",
   "datos_referencia": {
@@ -86,7 +86,7 @@
     "anio": 2024,
     "observaciones": 52,
     "url": "https://www.paho.org/en/arbo-portal/dengue-data-and-analysis/dengue-analysis-country",
-    "procedencia": "Enlace facilitado por el usuario el 2026-11-03; fecha de descarga original no registrada."
+    "procedencia": "Portal PAHO/OPS registrado por el equipo el 2026-11-03; fecha de descarga original no registrada."
   },
   "seleccion": {
     "criterio": "Menor RMSE de calibración entre las ejecuciones PSO principales.",

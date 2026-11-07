@@ -77,12 +77,12 @@
     "anio": 2024,
     "observaciones": 52,
     "url": "https://www.paho.org/en/arbo-portal/dengue-data-and-analysis/dengue-analysis-country",
-    "procedencia": "Enlace facilitado por el usuario el 2026-11-03; fecha de descarga original no registrada."
+    "procedencia": "Portal PAHO/OPS registrado por el equipo el 2026-11-03; fecha de descarga original no registrada."
   },
   "versiones": {
-    "python": "3.14.6",
-    "numpy": "2.5.1",
-    "pandas": "3.1.0"
+    "python": "3.13.7",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1"
   },
-  "codigo_sha256": "c4164127aa2e7d884bb920e480dc3332893fad45c2f69a8d7b99e51e2ff7b477"
+  "codigo_sha256": "14e756d681624305292dc99eaec6118ce45c20758e537512491966df23e25b6b"
 }
