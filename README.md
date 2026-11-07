@@ -64,7 +64,7 @@ experimentos tardan unos minutos cada uno.
 ```bash
 python -m src.datos
 python -m src.main
-python -m src.estudio_pso --repeticiones 30 --procesos 3
+python -m src.estudio_pso --repeticiones 30 --procesos 3 --sobrescribir
 python -m src.reporte_pso
 python -m src.experimentos --repeticiones 30 --procesos 2
 cp results/pso/estudio/seleccion/simulacion_mejorada.csv results/
@@ -73,7 +73,13 @@ pytest
 ```
 
 El paso `cp` deja la trayectoria seleccionada por el estudio como escenario
-mejorado que usa el comparador.
+mejorado que usa el comparador (en `cmd` de Windows usar `copy` con barras
+invertidas; en PowerShell `cp` funciona igual).
+
+El repositorio ya incluye las 90 corridas del estudio en
+`results/pso/estudio/corridas/`. `--sobrescribir` las recalcula desde cero; para
+solo verificar que la caché corresponde al código y datos actuales y regenerar
+los resúmenes sin volver a optimizar, usar `--reanudar` en su lugar.
 
 ## Descripción por etapas
 
@@ -121,16 +127,18 @@ otros límites y `--help` muestra los hiperparámetros.
 #### Estudio reproducible
 
 ```bash
-python -m src.estudio_pso --repeticiones 30 --procesos 3
+python -m src.estudio_pso --repeticiones 30 --procesos 3 --sobrescribir
 python -m src.reporte_pso
 ```
 
 Ejecuta 90 corridas: 30 de PSO principal, 30 de PSO con presupuesto reducido y
 30 de búsqueda aleatoria con el mismo presupuesto del PSO principal. Se registran
 semillas, configuraciones, versiones, trayectorias y convergencias. La selección
-final usa solo el RMSE de calibración. Para continuar un estudio interrumpido,
-repetir el comando con `--reanudar`; la firma de datos, código y protocolo debe
-coincidir, y para otro protocolo se usa una carpeta distinta con `--salida`.
+final usa solo el RMSE de calibración. Para continuar un estudio interrumpido
+o reutilizar las corridas guardadas, usar `--reanudar` en lugar de
+`--sobrescribir`; la firma de datos, código y protocolo debe coincidir (los
+saltos de línea se normalizan, así que la firma es igual en Windows, Linux y
+macOS). Para otro protocolo se usa una carpeta distinta con `--salida`.
 
 Resultados en `results/pso/estudio/`:
 

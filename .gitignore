@@ -8,3 +8,6 @@ venv/
 .ruff_cache/
 .coverage
 htmlcov/
+
+# Salidas de demostración temporales
+results/pso/demo/
