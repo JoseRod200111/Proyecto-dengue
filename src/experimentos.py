@@ -1,8 +1,13 @@
+"""Diseño experimental: escenario base, mejora PSO y sensibilidad de gamma.
 
+Ejecuta 30 repeticiones por condición aleatoria, sensibilidad local y
+verificaciones internas del modelo. Uso:
+
+    python -m src.experimentos --repeticiones 30 --procesos 2
+"""
 import argparse
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import asdict, replace
-import hashlib
 import json
 from pathlib import Path
 import platform
@@ -12,7 +17,7 @@ import pandas as pd
 
 from src.datos import BASE_DIR, SEMANAS_CALIBRACION, cargar_paho_validado
 from src.escenarios import crear_escenario_base
-from src.estudio_pso import generar_semillas
+from src.estudio_pso import generar_semillas, sha256_texto
 from src.optimizacion import (LIMITES, NOMBRES, ConfiguracionPSO, calibrar_seir,
                               metadatos_fuente)
 from src.simulacion import simular_seir
@@ -372,7 +377,7 @@ def main(argv=None):
         "datos": metadatos_fuente(),
         "versiones": {"python": platform.python_version(), "numpy": np.__version__,
                       "pandas": pd.__version__},
-        "codigo_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "codigo_sha256": sha256_texto(__file__),
     }
     resumen, _ = guardar(args.salida, protocolo, tabla, base, local, verificaciones)
 

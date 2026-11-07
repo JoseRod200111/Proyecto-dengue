@@ -5,7 +5,8 @@ import pandas as pd
 import pytest
 
 from src.escenarios import crear_escenario_base
-from src.estudio_pso import generar_semillas, guardar_estudio, resumir_ejecuciones
+from src.estudio_pso import (generar_semillas, guardar_estudio, resumir_ejecuciones,
+                             sha256_texto)
 from src.optimizacion import ConfiguracionPSO, calibrar_seir
 from src.simulacion import simular_seir
 
@@ -50,3 +51,10 @@ def test_control_aleatorio_usa_presupuesto_equivalente_e_incluye_base():
     resultado = calibrar_seir(datos, base, config, semanas_calibracion=4, metodo="aleatoria")
     assert resultado["resumen"]["evaluaciones_busqueda"] == 16
     assert resultado["resumen"]["rmse_verificacion_calibracion"] == pytest.approx(0, abs=1e-8)
+
+
+def test_firma_de_codigo_independiente_del_salto_de_linea(tmp_path):
+    lf, crlf = tmp_path / "lf.py", tmp_path / "crlf.py"
+    lf.write_bytes(b"x = 1\ny = 2\n")
+    crlf.write_bytes(b"x = 1\r\ny = 2\r\n")
+    assert sha256_texto(lf) == sha256_texto(crlf)
