@@ -28,7 +28,7 @@ def metadatos_fuente():
         "sha256": hashlib.sha256(RUTA_PAHO.read_bytes()).hexdigest(),
         "pais": "Guatemala", "anio": 2024, "observaciones": 52,
         "url": "https://www.paho.org/en/arbo-portal/dengue-data-and-analysis/dengue-analysis-country",
-        "procedencia": "Enlace facilitado por el usuario el 2026-11-03; fecha de descarga original no registrada."
+        "procedencia": "Portal PAHO/OPS registrado por el equipo el 2026-11-03; fecha de descarga original no registrada."
     }
 
 

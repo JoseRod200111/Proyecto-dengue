@@ -13,7 +13,7 @@
 - Transformación: lectura de año, semana y casos; conversión numérica y validación
   de país, año, continuidad, valores faltantes y no negatividad.
 
-El enlace de procedencia fue facilitado por el usuario el 3 de noviembre de 2026.
+El enlace de procedencia fue registrado por el equipo el 3 de noviembre de 2026.
 La consulta automatizada al portal respondió HTTP 403 en esa fecha; no se verificó
 una descarga nueva ni se sustituyó el archivo histórico. Cada calibración registra
 el SHA-256 del CSV utilizado. El tablero puede recibir actualizaciones y no debe

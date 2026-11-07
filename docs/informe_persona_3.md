@@ -209,7 +209,7 @@ ni incorporar observaciones posteriores durante la simulación.
 ```bash
 python -m pip install -r requirements-lock.txt
 python -m src.optimizacion --semilla 2026
-python -m src.estudio_pso --repeticiones 30 --procesos 3
+python -m src.estudio_pso --repeticiones 30 --procesos 3 --sobrescribir
 python -m src.reporte_pso
 python -m pytest
 ```
@@ -237,7 +237,7 @@ main("results/pso/estudio/seleccion")
 
 Se usa la instantánea PAHO del repositorio: 52 semanas de 2024 y 188,585 casos.
 Su [portal de origen](https://www.paho.org/en/arbo-portal/dengue-data-and-analysis/dengue-analysis-country)
-fue facilitado por el usuario. Los metadatos conocidos y faltantes están en
+está documentado en el repositorio. Los metadatos conocidos y faltantes están en
 [data/README.md](../data/README.md). El enlace PAHO no acredita la procedencia MSPAS.
 
 Las secciones 2 y 4 del informe compartido contienen la formulación, la
