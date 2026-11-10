@@ -41,6 +41,7 @@ docs/        texto del informe por secciones y guía de defensa
 | `src/experimentos.py` | Repeticiones, sensibilidad y verificaciones |
 | `src/comparacion.py`, `src/graficas.py` | Comparación con datos reales y gráficas |
 | `src/metricas.py` | MAE y RMSE compartidos por todos los módulos |
+| `src/servidor.py`, `ui/index.html` | Interfaz web interactiva para la presentación |
 
 ## Requisitos
 
@@ -189,6 +190,18 @@ Para comparar contra otra carpeta de resultados:
 ```bash
 python -c "from src.comparacion import main; main('results/pso/estudio/seleccion')"
 ```
+
+## Interfaz web
+
+```bash
+python -m src.servidor
+```
+
+Abre `http://127.0.0.1:8000` con la curva simulada frente a los casos de PAHO,
+deslizadores para `beta_base`, amplitud y fase, y los escenarios base y calibrado
+(requiere `results/pso/estudio/seleccion/calibracion_pso.json` para el segundo).
+Usa `--puerto` para cambiar el puerto y `--sin-navegador` para no abrirlo solo.
+No necesita internet ni dependencias adicionales.
 
 ## Pruebas y estilo
 
