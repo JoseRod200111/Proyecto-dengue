@@ -6,6 +6,8 @@ optimización por enjambre de partículas (PSO) y se contrastan con la serie
 semanal de PAHO/OPS. El archivo MSPAS se usa para análisis por departamento,
 grupo etario y sexo.
 
+![Interfaz web del modelo](docs/img/interfaz.png)
+
 ## Inicio rápido
 
 ```bash
@@ -129,12 +131,6 @@ El PSO ajusta `beta_base`, amplitud y fase para minimizar el RMSE en las semanas
 `results/simulacion_mejorada.csv`, `convergencia_pso.csv`,
 `metricas_calibracion_pso.csv` y `calibracion_pso.json`.
 
-Usa inicialización estratificada, reflexión de límites y fase circular. La
-búsqueda corre con paso 0.1 y evaluación por lotes con NumPy; cada ganador se
-verifica con el simulador original (paso 0.01). `--evaluador canonico` usa el
-motor original durante la búsqueda, `--limites config/limites_pso.json` carga
-otros límites y `--help` muestra los hiperparámetros.
-
 > Ejecutar `src.optimizacion` sobre la carpeta predeterminada sustituye la
 > selección vigente por esa ejecución individual. Para conservarla, usar otra
 > carpeta con `--salida`, por ejemplo
@@ -147,28 +143,10 @@ python -m src.estudio_pso --repeticiones 30 --procesos 3 --sobrescribir
 python -m src.reporte_pso
 ```
 
-Ejecuta 90 corridas: 30 de PSO principal, 30 de PSO con presupuesto reducido y
-30 de búsqueda aleatoria con el mismo presupuesto del PSO principal. Se registran
-semillas, configuraciones, versiones, trayectorias y convergencias. La selección
-final usa solo el RMSE de calibración. Para continuar un estudio interrumpido
-o reutilizar las corridas guardadas, usar `--reanudar` en lugar de
-`--sobrescribir`; la firma de datos, código y protocolo debe coincidir (los
-saltos de línea se normalizan, así que la firma es igual en Windows, Linux y
-macOS). Para otro protocolo se usa una carpeta distinta con `--salida`.
-
-Resultados en `results/pso/estudio/`:
-
-- `ejecuciones.csv` y `estadisticas.csv`: las 90 corridas y sus resúmenes.
-- `diferencias_pareadas.csv`: diferencias entre métodos por semilla.
-- `protocolo.json` y `corridas/`: configuración, hashes y evidencia por ejecución.
-- `seleccion/`: parámetros, métricas y trayectoria elegida.
-- `lectura_resultados.md`: resumen numérico legible.
-- `figuras/`: cuatro gráficas en PNG y SVG.
-
-Los resultados de la primera exploración se conservan en `results/pso/primera_version/`
-y las comparaciones del escenario base sin calibrar en `results/pso/referencia_base/`.
-La dispersión entre semillas caracteriza al optimizador; no representa
-incertidumbre epidemiológica ni intervalos de predicción de casos.
+Ejecuta 90 corridas (PSO principal, PSO con presupuesto reducido y búsqueda
+aleatoria, 30 semillas cada una) y deja tablas, figuras y evidencia por corrida en
+`results/pso/estudio/`. `--reanudar` reutiliza las corridas guardadas. Detalles del
+algoritmo, opciones y archivos generados en [docs/pso_detalles.md](docs/pso_detalles.md).
 
 ### 4. Experimentación y validación
 
@@ -231,6 +209,7 @@ ruff format src tests     # formato, 100 columnas
 - [Sección 5: experimentación y validación](docs/informe_persona_4.md)
 - [Secciones 6 y 7: comparación, resultados y conclusiones](docs/informe_persona_5.md)
 - [Guía de defensa y demostración](docs/guia_defensa_pso.md)
+- [Detalles del algoritmo PSO y del estudio](docs/pso_detalles.md)
 - [Procedencia de los datos](data/README.md)
 
 ## Limitaciones
