@@ -95,8 +95,14 @@
   .presets button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
 
   .ctrl { margin-bottom: 12px; }
-  .ctrl label { display: flex; justify-content: space-between; align-items: baseline; font-size: 17px; }
-  .ctrl output { font-family: var(--mono); font-size: 20px; color: var(--acento); }
+  .ctrl .fila { display: flex; justify-content: space-between; align-items: baseline; font-size: 17px; }
+  .valor {
+    width: 6ch; padding: 0 0 1px; font: 20px var(--mono); color: var(--acento); text-align: right;
+    background: none; border: 0; border-bottom: 1px dotted transparent; border-radius: 0; outline: none;
+    cursor: text;
+  }
+  .valor:hover { border-bottom-color: var(--acento); }
+  .valor:focus { border-bottom: 1px solid var(--acento); background: var(--acento-tenue); }
   .ctrl small { display: block; color: var(--suave); font-size: 12px; margin-top: 0; }
   input[type="range"] { width: 100%; margin: 6px 0 0; accent-color: var(--acento); height: 22px; cursor: pointer; }
 
@@ -154,17 +160,17 @@
       <div>
         <h2>Parámetros</h2>
         <div class="ctrl">
-          <label for="beta_base">Transmisión β <output id="v_beta_base"></output></label>
+          <div class="fila"><label for="beta_base">Transmisión β</label><input class="valor" id="v_beta_base" type="text" inputmode="decimal" aria-label="Transmisión β, valor exacto" autocomplete="off" spellcheck="false"></div>
           <input type="range" id="beta_base" step="0.01">
           <small>Qué tan rápido se contagia el virus</small>
         </div>
         <div class="ctrl">
-          <label for="amplitud">Estacionalidad <output id="v_amplitud"></output></label>
+          <div class="fila"><label for="amplitud">Estacionalidad</label><input class="valor" id="v_amplitud" type="text" inputmode="decimal" aria-label="Estacionalidad, valor exacto" autocomplete="off" spellcheck="false"></div>
           <input type="range" id="amplitud" step="0.01">
           <small>Cuánto sube y baja con la temporada</small>
         </div>
         <div class="ctrl">
-          <label for="fase">Fase <output id="v_fase"></output></label>
+          <div class="fila"><label for="fase">Fase</label><input class="valor" id="v_fase" type="text" inputmode="decimal" aria-label="Fase, valor exacto" autocomplete="off" spellcheck="false"></div>
           <input type="range" id="fase" step="0.1">
           <small>Semana en que arranca el ciclo</small>
         </div>
@@ -323,11 +329,15 @@ async function simular() {
   dibujar();
 }
 
+function mostrarValor(k) {
+  document.getElementById("v_" + k).value = fmt(estado.params[k], FORMATO[k]);
+}
+
 function fijarParametros(valores) {
   estado.params = { ...valores };
   for (const k of PARAMS) {
     document.getElementById(k).value = valores[k];
-    document.getElementById("v_" + k).textContent = fmt(valores[k], FORMATO[k]);
+    mostrarValor(k);
   }
   actualizarPresets();
   simular();
@@ -348,9 +358,26 @@ async function iniciar() {
     campo.min = limites[k][0]; campo.max = limites[k][1];
     campo.addEventListener("input", () => {
       estado.params[k] = parseFloat(campo.value);
-      document.getElementById("v_" + k).textContent = fmt(estado.params[k], FORMATO[k]);
+      mostrarValor(k);
       actualizarPresets();
       simular();
+    });
+
+    const entrada = document.getElementById("v_" + k);
+    entrada.addEventListener("focus", () => entrada.select());
+    entrada.addEventListener("keydown", e => {
+      if (e.key === "Enter") entrada.blur();
+      if (e.key === "Escape") { mostrarValor(k); entrada.blur(); }
+    });
+    entrada.addEventListener("change", () => {
+      const escrito = parseFloat(entrada.value.replace(",", "."));
+      if (Number.isFinite(escrito)) {
+        estado.params[k] = Math.min(limites[k][1], Math.max(limites[k][0], escrito));
+        campo.value = estado.params[k];
+        actualizarPresets();
+        simular();
+      }
+      mostrarValor(k);
     });
   }
 
