@@ -40,6 +40,7 @@ docs/        texto del informe por secciones y guía de defensa
 | `src/estudio_pso.py`, `src/reporte_pso.py` | Estudio reproducible y figuras del PSO |
 | `src/experimentos.py` | Repeticiones, sensibilidad y verificaciones |
 | `src/comparacion.py`, `src/graficas.py` | Comparación con datos reales y gráficas |
+| `src/metricas.py` | MAE y RMSE compartidos por todos los módulos |
 
 ## Requisitos
 
@@ -189,10 +190,12 @@ Para comparar contra otra carpeta de resultados:
 python -c "from src.comparacion import main; main('results/pso/estudio/seleccion')"
 ```
 
-## Pruebas
+## Pruebas y estilo
 
 ```bash
 pytest
+ruff check src tests      # lint (configuración en ruff.toml)
+ruff format src tests     # formato, 100 columnas
 ```
 
 ## Documentación del informe
@@ -208,6 +211,8 @@ pytest
 - Modelo determinista de una sola población, sin vector, serotipos ni
   heterogeneidad por departamento.
 - Un único año de calibración y evaluación.
+- Simulación determinista: `modo_estocastico` no está implementado. La aleatoriedad del
+  proyecto proviene solo del PSO, controlada con semillas registradas.
 - La calibración es muy sensible a `beta_base` y a `gamma`, que están
   correlacionados; sus valores ajustados no son estimaciones biológicas
   independientes.

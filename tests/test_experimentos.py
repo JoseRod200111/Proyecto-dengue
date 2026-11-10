@@ -43,12 +43,16 @@ def test_intervalo_bootstrap_reproducible_y_contiene_media():
 
 
 def test_resumen_y_diferencias_pareadas():
-    tabla = pd.DataFrame({
-        "condicion": ["mejorada"] * 3 + ["sensibilidad_gamma"] * 3,
-        "semilla": [1, 2, 3] * 2,
-        "rmse_calibracion": [1.0, 2.0, 3.0, 2.0, 3.0, 4.0],
-        "rmse_evaluacion": [1.0] * 6, "rmse_total": [1.0] * 6,
-        "total_simulado": [10.0] * 6})
+    tabla = pd.DataFrame(
+        {
+            "condicion": ["mejorada"] * 3 + ["sensibilidad_gamma"] * 3,
+            "semilla": [1, 2, 3] * 2,
+            "rmse_calibracion": [1.0, 2.0, 3.0, 2.0, 3.0, 4.0],
+            "rmse_evaluacion": [1.0] * 6,
+            "rmse_total": [1.0] * 6,
+            "total_simulado": [10.0] * 6,
+        }
+    )
     resumen = resumir(tabla, columnas=("rmse_calibracion",))
     assert list(resumen["n"]) == [3, 3]
     assert resumen.iloc[0]["promedio"] == pytest.approx(2.0)
@@ -57,8 +61,12 @@ def test_resumen_y_diferencias_pareadas():
 
 
 def test_verificaciones_del_modelo_se_cumplen():
-    escenario = replace(crear_escenario_base(), parametros=replace(
-        crear_escenario_base().parametros, beta_base=1.59, amplitud=0.14, fase=8.7))
+    escenario = replace(
+        crear_escenario_base(),
+        parametros=replace(
+            crear_escenario_base().parametros, beta_base=1.59, amplitud=0.14, fase=8.7
+        ),
+    )
     verificaciones = verificar_modelo(escenario)
     assert verificaciones["cumple"].all(), verificaciones
 
@@ -72,19 +80,45 @@ def test_sensibilidad_local_factor_uno_no_cambia_nada():
 
 
 def test_verificar_corridas_detecta_restriccion_incumplida():
-    tabla = pd.DataFrame({"condicion": ["mejorada"] * 2, "semilla": [1, 2],
-                          "rmse_calibracion": [1.0, 1.0],
-                          "restricciones_cumplidas": [True, False]})
+    tabla = pd.DataFrame(
+        {
+            "condicion": ["mejorada"] * 2,
+            "semilla": [1, 2],
+            "rmse_calibracion": [1.0, 1.0],
+            "restricciones_cumplidas": [True, False],
+        }
+    )
     assert not verificar_corridas(tabla)["cumple"].all()
 
 
 def test_main_guarda_todos_los_archivos(tmp_path):
-    main(["--repeticiones", "2", "--particulas", "4", "--iteraciones", "2",
-          "--procesos", "1", "--salida", str(tmp_path)])
-    for nombre in ("corridas.csv", "trayectorias.csv", "resumen_condiciones.csv",
-                   "diferencias_pareadas.csv", "sensibilidad_local.csv",
-                   "verificaciones.csv", "protocolo.json"):
+    main(
+        [
+            "--repeticiones",
+            "2",
+            "--particulas",
+            "4",
+            "--iteraciones",
+            "2",
+            "--procesos",
+            "1",
+            "--salida",
+            str(tmp_path),
+        ]
+    )
+    for nombre in (
+        "corridas.csv",
+        "trayectorias.csv",
+        "resumen_condiciones.csv",
+        "diferencias_pareadas.csv",
+        "sensibilidad_local.csv",
+        "verificaciones.csv",
+        "protocolo.json",
+    ):
         assert (tmp_path / nombre).exists()
     corridas = pd.read_csv(tmp_path / "corridas.csv")
     assert corridas["condicion"].value_counts().to_dict() == {
-        "mejorada": 2, "sensibilidad_gamma": 2, "base": 1}
+        "mejorada": 2,
+        "sensibilidad_gamma": 2,
+        "base": 1,
+    }

@@ -27,6 +27,7 @@ PASO_BASE = 0.01
 # CONFIGURACIÓN DE ESCENARIOS
 # ============================================================
 
+
 @dataclass(frozen=True)
 class ParametrosSEIR:
     beta_base: float
@@ -37,27 +38,14 @@ class ParametrosSEIR:
     poblacion: int = POBLACION_GUATEMALA_2024
 
     def __post_init__(self):
-        validar_parametros(
-            self.beta_base,
-            self.sigma,
-            self.gamma,
-            self.poblacion
-        )
+        validar_parametros(self.beta_base, self.sigma, self.gamma, self.poblacion)
 
-        validar_finito(
-            self.amplitud,
-            "La amplitud"
-        )
+        validar_finito(self.amplitud, "La amplitud")
 
-        validar_finito(
-            self.fase,
-            "La fase"
-        )
+        validar_finito(self.fase, "La fase")
 
         if not 0 <= self.amplitud < 1:
-            raise ValueError(
-                "La amplitud debe cumplir 0 <= amplitud < 1."
-            )
+            raise ValueError("La amplitud debe cumplir 0 <= amplitud < 1.")
 
 
 @dataclass(frozen=True)
@@ -72,15 +60,10 @@ class CondicionesIniciales:
             ("Los infectados", self.infectados),
             ("Los recuperados", self.recuperados),
         ):
-            validar_finito(
-                valor,
-                nombre
-            )
+            validar_finito(valor, nombre)
 
             if valor < 0:
-                raise ValueError(
-                    f"{nombre} no pueden ser negativos."
-                )
+                raise ValueError(f"{nombre} no pueden ser negativos.")
 
 
 @dataclass(frozen=True)
@@ -95,51 +78,29 @@ class Escenario:
 
     def __post_init__(self):
         if not self.nombre.strip():
-            raise ValueError(
-                "El escenario debe tener un nombre."
-            )
+            raise ValueError("El escenario debe tener un nombre.")
 
-        if (
-            isinstance(self.semanas, bool)
-            or not isinstance(self.semanas, int)
-            or self.semanas <= 0
-        ):
-            raise ValueError(
-                "Las semanas deben ser un entero mayor que cero."
-            )
+        if isinstance(self.semanas, bool) or not isinstance(self.semanas, int) or self.semanas <= 0:
+            raise ValueError("Las semanas deben ser un entero mayor que cero.")
 
-        validar_finito(
-            self.paso,
-            "El paso"
-        )
+        validar_finito(self.paso, "El paso")
 
         if self.paso <= 0:
-            raise ValueError(
-                "El paso debe ser mayor que cero."
-            )
+            raise ValueError("El paso debe ser mayor que cero.")
 
         if self.semilla is not None and (
-            isinstance(self.semilla, bool)
-            or not isinstance(self.semilla, int)
-            or self.semilla < 0
+            isinstance(self.semilla, bool) or not isinstance(self.semilla, int) or self.semilla < 0
         ):
-            raise ValueError(
-                "La semilla debe ser un entero no negativo."
-            )
+            raise ValueError("La semilla debe ser un entero no negativo.")
 
-        if not isinstance(
-            self.modo_estocastico,
-            bool
-        ):
-            raise ValueError(
-                "modo_estocastico debe ser booleano."
-            )
+        if not isinstance(self.modo_estocastico, bool):
+            raise ValueError("modo_estocastico debe ser booleano.")
 
         crear_estado_inicial(
             poblacion=self.parametros.poblacion,
             expuestos_iniciales=self.condiciones.expuestos,
             infectados_iniciales=self.condiciones.infectados,
-            recuperados_iniciales=self.condiciones.recuperados
+            recuperados_iniciales=self.condiciones.recuperados,
         )
 
 
@@ -148,10 +109,6 @@ def crear_escenario_base():
 
     return Escenario(
         nombre="base",
-        parametros=ParametrosSEIR(
-            beta_base=BETA_BASE,
-            amplitud=AMPLITUD_BASE,
-            fase=FASE_BASE
-        ),
-        condiciones=CondicionesIniciales()
+        parametros=ParametrosSEIR(beta_base=BETA_BASE, amplitud=AMPLITUD_BASE, fase=FASE_BASE),
+        condiciones=CondicionesIniciales(),
     )

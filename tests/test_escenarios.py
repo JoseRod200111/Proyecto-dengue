@@ -39,7 +39,7 @@ def test_escenario_base():
         ("beta_base", math.nan),
         ("sigma", 0),
         ("gamma", math.inf),
-    ]
+    ],
 )
 def test_parametros_invalidos(campo, valor):
     valores = {
@@ -56,17 +56,10 @@ def test_parametros_invalidos(campo, valor):
         ParametrosSEIR(**valores)
 
 
-@pytest.mark.parametrize(
-    "amplitud",
-    [-0.1, 1.0, math.nan]
-)
+@pytest.mark.parametrize("amplitud", [-0.1, 1.0, math.nan])
 def test_amplitud_invalida(amplitud):
     with pytest.raises(ValueError):
-        ParametrosSEIR(
-            beta_base=2.0,
-            amplitud=amplitud,
-            fase=30.0
-        )
+        ParametrosSEIR(beta_base=2.0, amplitud=amplitud, fase=30.0)
 
 
 @pytest.mark.parametrize(
@@ -76,32 +69,20 @@ def test_amplitud_invalida(amplitud):
         (10, -1, 0),
         (10, 10, -1),
         (math.nan, 10, 0),
-    ]
+    ],
 )
-def test_condiciones_iniciales_invalidas(
-    expuestos,
-    infectados,
-    recuperados
-):
+def test_condiciones_iniciales_invalidas(expuestos, infectados, recuperados):
     with pytest.raises(ValueError):
-        CondicionesIniciales(
-            expuestos=expuestos,
-            infectados=infectados,
-            recuperados=recuperados
-        )
+        CondicionesIniciales(expuestos=expuestos, infectados=infectados, recuperados=recuperados)
 
 
 def test_escenario_rechaza_semanas_invalidas():
     with pytest.raises(ValueError):
         Escenario(
             nombre="invalido",
-            parametros=ParametrosSEIR(
-                beta_base=2.0,
-                amplitud=0.3,
-                fase=30.0
-            ),
+            parametros=ParametrosSEIR(beta_base=2.0, amplitud=0.3, fase=30.0),
             condiciones=CondicionesIniciales(),
-            semanas=0
+            semanas=0,
         )
 
 
@@ -109,13 +90,9 @@ def test_escenario_rechaza_paso_invalido():
     with pytest.raises(ValueError):
         Escenario(
             nombre="invalido",
-            parametros=ParametrosSEIR(
-                beta_base=2.0,
-                amplitud=0.3,
-                fase=30.0
-            ),
+            parametros=ParametrosSEIR(beta_base=2.0, amplitud=0.3, fase=30.0),
             condiciones=CondicionesIniciales(),
-            paso=0
+            paso=0,
         )
 
 
@@ -123,31 +100,16 @@ def test_escenario_rechaza_semilla_invalida():
     with pytest.raises(ValueError):
         Escenario(
             nombre="invalido",
-            parametros=ParametrosSEIR(
-                beta_base=2.0,
-                amplitud=0.3,
-                fase=30.0
-            ),
+            parametros=ParametrosSEIR(beta_base=2.0, amplitud=0.3, fase=30.0),
             condiciones=CondicionesIniciales(),
-            semilla=-1
+            semilla=-1,
         )
 
 
 def test_escenario_rechaza_condiciones_mayores_que_poblacion():
-    with pytest.raises(
-        ValueError,
-        match="superan"
-    ):
+    with pytest.raises(ValueError, match="superan"):
         Escenario(
             nombre="invalido",
-            parametros=ParametrosSEIR(
-                beta_base=2.0,
-                amplitud=0.3,
-                fase=30.0,
-                poblacion=100
-            ),
-            condiciones=CondicionesIniciales(
-                expuestos=80,
-                infectados=80
-            )
+            parametros=ParametrosSEIR(beta_base=2.0, amplitud=0.3, fase=30.0, poblacion=100),
+            condiciones=CondicionesIniciales(expuestos=80, infectados=80),
         )

@@ -54,11 +54,7 @@ E0_BASE = CASOS_SEMANA_1
 # Se utiliza la duración infecciosa promedio de 4.5 días:
 #
 # I0 ≈ casos_semana_1 * (4.5 / 7)
-I0_BASE = round(
-    CASOS_SEMANA_1
-    * 4.5
-    / 7
-)
+I0_BASE = round(CASOS_SEMANA_1 * 4.5 / 7)
 
 
 # El modelo comienza su ventana temporal en la
@@ -74,24 +70,15 @@ R0_BASE = 0
 # VALIDACIÓN DE PARÁMETROS
 # ============================================================
 
-def validar_finito(
-    valor,
-    nombre
-):
+
+def validar_finito(valor, nombre):
     """Rechaza NaN, infinitos y valores no numéricos."""
 
     if not math.isfinite(valor):
-        raise ValueError(
-            f"{nombre} debe ser un número finito."
-        )
+        raise ValueError(f"{nombre} debe ser un número finito.")
 
 
-def validar_parametros(
-    beta,
-    sigma,
-    gamma,
-    poblacion
-):
+def validar_parametros(beta, sigma, gamma, poblacion):
     """
     Verifica que los parámetros principales del modelo
     tengan valores válidos.
@@ -109,45 +96,25 @@ def validar_parametros(
         Población total utilizada en el modelo.
     """
 
-    validar_finito(
-        poblacion,
-        "La población"
-    )
+    validar_finito(poblacion, "La población")
 
-    validar_finito(
-        beta,
-        "beta"
-    )
+    validar_finito(beta, "beta")
 
-    validar_finito(
-        sigma,
-        "sigma"
-    )
+    validar_finito(sigma, "sigma")
 
-    validar_finito(
-        gamma,
-        "gamma"
-    )
+    validar_finito(gamma, "gamma")
 
     if poblacion <= 0:
-        raise ValueError(
-            "La población debe ser mayor que cero."
-        )
+        raise ValueError("La población debe ser mayor que cero.")
 
     if beta <= 0:
-        raise ValueError(
-            "beta debe ser mayor que cero."
-        )
+        raise ValueError("beta debe ser mayor que cero.")
 
     if sigma <= 0:
-        raise ValueError(
-            "sigma debe ser mayor que cero."
-        )
+        raise ValueError("sigma debe ser mayor que cero.")
 
     if gamma <= 0:
-        raise ValueError(
-            "gamma debe ser mayor que cero."
-        )
+        raise ValueError("gamma debe ser mayor que cero.")
 
     return True
 
@@ -156,11 +123,9 @@ def validar_parametros(
 # CREACIÓN DEL ESTADO INICIAL
 # ============================================================
 
+
 def crear_estado_inicial(
-    poblacion,
-    expuestos_iniciales,
-    infectados_iniciales,
-    recuperados_iniciales=0
+    poblacion, expuestos_iniciales, infectados_iniciales, recuperados_iniciales=0
 ):
     """
     Construye el estado inicial del modelo SEIR.
@@ -177,61 +142,32 @@ def crear_estado_inicial(
     Se utiliza únicamente para medir incidencia acumulada.
     """
 
-    validar_finito(
-        poblacion,
-        "La población"
-    )
+    validar_finito(poblacion, "La población")
 
-    validar_finito(
-        expuestos_iniciales,
-        "Los expuestos iniciales"
-    )
+    validar_finito(expuestos_iniciales, "Los expuestos iniciales")
 
-    validar_finito(
-        infectados_iniciales,
-        "Los infectados iniciales"
-    )
+    validar_finito(infectados_iniciales, "Los infectados iniciales")
 
-    validar_finito(
-        recuperados_iniciales,
-        "Los recuperados iniciales"
-    )
+    validar_finito(recuperados_iniciales, "Los recuperados iniciales")
 
     if poblacion <= 0:
-        raise ValueError(
-            "La población debe ser mayor que cero."
-        )
+        raise ValueError("La población debe ser mayor que cero.")
 
     if expuestos_iniciales < 0:
-        raise ValueError(
-            "Los expuestos iniciales no pueden ser negativos."
-        )
+        raise ValueError("Los expuestos iniciales no pueden ser negativos.")
 
     if infectados_iniciales < 0:
-        raise ValueError(
-            "Los infectados iniciales no pueden ser negativos."
-        )
+        raise ValueError("Los infectados iniciales no pueden ser negativos.")
 
     if recuperados_iniciales < 0:
-        raise ValueError(
-            "Los recuperados iniciales no pueden ser negativos."
-        )
+        raise ValueError("Los recuperados iniciales no pueden ser negativos.")
 
-    ocupados = (
-        expuestos_iniciales
-        + infectados_iniciales
-        + recuperados_iniciales
-    )
+    ocupados = expuestos_iniciales + infectados_iniciales + recuperados_iniciales
 
-    susceptibles_iniciales = (
-        poblacion
-        - ocupados
-    )
+    susceptibles_iniciales = poblacion - ocupados
 
     if susceptibles_iniciales < 0:
-        raise ValueError(
-            "Las condiciones iniciales superan la población total."
-        )
+        raise ValueError("Las condiciones iniciales superan la población total.")
 
     estado = (
         float(susceptibles_iniciales),
@@ -248,6 +184,7 @@ def crear_estado_inicial(
 # ESTADO INICIAL BASE DEL PROYECTO
 # ============================================================
 
+
 def crear_estado_inicial_base():
     """
     Devuelve las condiciones iniciales utilizadas como
@@ -258,7 +195,7 @@ def crear_estado_inicial_base():
         poblacion=POBLACION_GUATEMALA_2024,
         expuestos_iniciales=E0_BASE,
         infectados_iniciales=I0_BASE,
-        recuperados_iniciales=R0_BASE
+        recuperados_iniciales=R0_BASE,
     )
 
 
@@ -266,11 +203,8 @@ def crear_estado_inicial_base():
 # VALIDACIÓN DEL ESTADO
 # ============================================================
 
-def validar_estado(
-    estado,
-    poblacion,
-    tolerancia=1e-6
-):
+
+def validar_estado(estado, poblacion, tolerancia=1e-6):
     """
     Comprueba la consistencia interna del estado.
 
@@ -282,83 +216,43 @@ def validar_estado(
     """
 
     if len(estado) != 5:
-        raise ValueError(
-            "El estado debe contener S, E, I, R y C."
-        )
+        raise ValueError("El estado debe contener S, E, I, R y C.")
 
     S, E, I, R, C = estado
 
-    validar_finito(
-        S,
-        "S"
-    )
+    validar_finito(S, "S")
 
-    validar_finito(
-        E,
-        "E"
-    )
+    validar_finito(E, "E")
 
-    validar_finito(
-        I,
-        "I"
-    )
+    validar_finito(I, "I")
 
-    validar_finito(
-        R,
-        "R"
-    )
+    validar_finito(R, "R")
 
-    validar_finito(
-        C,
-        "C"
-    )
+    validar_finito(C, "C")
 
-    validar_finito(
-        poblacion,
-        "La población"
-    )
+    validar_finito(poblacion, "La población")
 
     if S < 0:
-        raise ValueError(
-            "S no puede ser negativo."
-        )
+        raise ValueError("S no puede ser negativo.")
 
     if E < 0:
-        raise ValueError(
-            "E no puede ser negativo."
-        )
+        raise ValueError("E no puede ser negativo.")
 
     if I < 0:
-        raise ValueError(
-            "I no puede ser negativo."
-        )
+        raise ValueError("I no puede ser negativo.")
 
     if R < 0:
-        raise ValueError(
-            "R no puede ser negativo."
-        )
+        raise ValueError("R no puede ser negativo.")
 
     if C < 0:
-        raise ValueError(
-            "C no puede ser negativo."
-        )
+        raise ValueError("C no puede ser negativo.")
 
-    total = (
-        S
-        + E
-        + I
-        + R
-    )
+    total = S + E + I + R
 
-    diferencia = abs(
-        total
-        - poblacion
-    )
+    diferencia = abs(total - poblacion)
 
     if diferencia > tolerancia:
-        raise ValueError(
-            "S + E + I + R no coincide con la población total."
-        )
+        raise ValueError("S + E + I + R no coincide con la población total.")
 
     return True
 
@@ -367,12 +261,8 @@ def validar_estado(
 # TRANSMISIÓN ESTACIONAL
 # ============================================================
 
-def beta_estacional(
-    semana,
-    beta_base,
-    amplitud,
-    fase
-):
+
+def beta_estacional(semana, beta_base, amplitud, fase):
     """
     Calcula la tasa efectiva de transmisión para una semana.
 
@@ -399,51 +289,24 @@ def beta_estacional(
         Desplaza temporalmente el patrón estacional.
     """
 
-    validar_finito(
-        semana,
-        "La semana"
-    )
+    validar_finito(semana, "La semana")
 
-    validar_finito(
-        beta_base,
-        "beta_base"
-    )
+    validar_finito(beta_base, "beta_base")
 
-    validar_finito(
-        amplitud,
-        "La amplitud"
-    )
+    validar_finito(amplitud, "La amplitud")
 
-    validar_finito(
-        fase,
-        "La fase"
-    )
+    validar_finito(fase, "La fase")
 
     if beta_base <= 0:
-        raise ValueError(
-            "beta_base debe ser mayor que cero."
-        )
+        raise ValueError("beta_base debe ser mayor que cero.")
 
     if amplitud < 0:
-        raise ValueError(
-            "La amplitud no puede ser negativa."
-        )
+        raise ValueError("La amplitud no puede ser negativa.")
 
     if amplitud >= 1:
-        raise ValueError(
-            "La amplitud debe ser menor que 1."
-        )
+        raise ValueError("La amplitud debe ser menor que 1.")
 
-    beta = beta_base * (
-        1
-        + amplitud
-        * math.sin(
-            2
-            * math.pi
-            * (semana - fase)
-            / 52
-        )
-    )
+    beta = beta_base * (1 + amplitud * math.sin(2 * math.pi * (semana - fase) / 52))
 
     return beta
 
@@ -452,16 +315,8 @@ def beta_estacional(
 # ECUACIONES DEL MODELO SEIR
 # ============================================================
 
-def derivadas_seir(
-    estado,
-    semana,
-    beta_base,
-    amplitud,
-    fase,
-    sigma,
-    gamma,
-    poblacion
-):
+
+def derivadas_seir(estado, semana, beta_base, amplitud, fase, sigma, gamma, poblacion):
     """
     Calcula las derivadas del modelo SEIR.
 
@@ -488,69 +343,33 @@ def derivadas_seir(
     con los datos de PAHO.
     """
 
-    validar_estado(
-        estado,
-        poblacion
-    )
+    validar_estado(estado, poblacion)
 
-    beta = beta_estacional(
-        semana,
-        beta_base,
-        amplitud,
-        fase
-    )
+    beta = beta_estacional(semana, beta_base, amplitud, fase)
 
-    validar_parametros(
-        beta,
-        sigma,
-        gamma,
-        poblacion
-    )
+    validar_parametros(beta, sigma, gamma, poblacion)
 
     S, E, I, R, C = estado
 
     # Personas que pasan de susceptibles a expuestas.
-    nuevos_expuestos = (
-        beta
-        * S
-        * I
-        / poblacion
-    )
+    nuevos_expuestos = beta * S * I / poblacion
 
     # Personas que pasan de expuestas a infectadas.
-    nuevos_infectados = (
-        sigma
-        * E
-    )
+    nuevos_infectados = sigma * E
 
     # Personas que pasan de infectadas a recuperadas.
-    nuevas_recuperaciones = (
-        gamma
-        * I
-    )
+    nuevas_recuperaciones = gamma * I
 
-    dS = (
-        -nuevos_expuestos
-    )
+    dS = -nuevos_expuestos
 
-    dE = (
-        nuevos_expuestos
-        - nuevos_infectados
-    )
+    dE = nuevos_expuestos - nuevos_infectados
 
-    dI = (
-        nuevos_infectados
-        - nuevas_recuperaciones
-    )
+    dI = nuevos_infectados - nuevas_recuperaciones
 
-    dR = (
-        nuevas_recuperaciones
-    )
+    dR = nuevas_recuperaciones
 
     # Casos incidentes acumulados.
-    dC = (
-        nuevos_infectados
-    )
+    dC = nuevos_infectados
 
     return (
         dS,
@@ -565,6 +384,7 @@ def derivadas_seir(
 # INFORMACIÓN DEL MODELO
 # ============================================================
 
+
 def mostrar_resumen_modelo():
     """
     Muestra los parámetros y condiciones iniciales
@@ -575,157 +395,78 @@ def mostrar_resumen_modelo():
 
     S0, E0, I0, R0, C0 = estado_base
 
-    print(
-        "=================================================="
-    )
-    print(
-        "MODELO SEIR - DENGUE GUATEMALA 2024"
-    )
-    print(
-        "=================================================="
-    )
+    print("==================================================")
+    print("MODELO SEIR - DENGUE GUATEMALA 2024")
+    print("==================================================")
 
     print()
-    print(
-        "Población:",
-        POBLACION_GUATEMALA_2024
-    )
+    print("Población:", POBLACION_GUATEMALA_2024)
 
     print()
-    print(
-        "PARÁMETROS BIOLÓGICOS BASE"
-    )
+    print("PARÁMETROS BIOLÓGICOS BASE")
 
-    print(
-        "Sigma:",
-        round(
-            SIGMA_BASE,
-            4
-        ),
-        "por semana"
-    )
+    print("Sigma:", round(SIGMA_BASE, 4), "por semana")
 
-    print(
-        "Gamma:",
-        round(
-            GAMMA_BASE,
-            4
-        ),
-        "por semana"
-    )
+    print("Gamma:", round(GAMMA_BASE, 4), "por semana")
 
     print()
-    print(
-        "CONDICIONES INICIALES BASE"
-    )
+    print("CONDICIONES INICIALES BASE")
 
-    print(
-        "S0:",
-        int(S0)
-    )
+    print("S0:", int(S0))
 
-    print(
-        "E0:",
-        int(E0)
-    )
+    print("E0:", int(E0))
 
-    print(
-        "I0:",
-        int(I0)
-    )
+    print("I0:", int(I0))
 
-    print(
-        "R0:",
-        int(R0)
-    )
+    print("R0:", int(R0))
 
-    print(
-        "C0:",
-        int(C0)
-    )
+    print("C0:", int(C0))
 
     print()
-    print(
-        "Referencia semana 1 PAHO:",
-        CASOS_SEMANA_1,
-        "casos"
-    )
+    print("Referencia semana 1 PAHO:", CASOS_SEMANA_1, "casos")
 
     print()
-    print(
-        "PARÁMETROS PREVISTOS PARA CALIBRACIÓN PSO"
-    )
+    print("PARÁMETROS PREVISTOS PARA CALIBRACIÓN PSO")
 
-    print(
-        "- beta_base"
-    )
+    print("- beta_base")
 
-    print(
-        "- amplitud"
-    )
+    print("- amplitud")
 
-    print(
-        "- fase"
-    )
+    print("- fase")
 
-    print(
-        "- E0 e I0 podrían calibrarse posteriormente"
-    )
+    print("- E0 e I0 podrían calibrarse posteriormente")
 
 
 # ============================================================
 # PRUEBA DEL MÓDULO
 # ============================================================
 
+
 def main():
     mostrar_resumen_modelo()
 
     print()
-    print(
-        "Prueba del estado inicial base:"
-    )
+    print("Prueba del estado inicial base:")
 
     estado_base = crear_estado_inicial_base()
 
-    print(
-        estado_base
-    )
+    print(estado_base)
 
-    validar_estado(
-        estado_base,
-        POBLACION_GUATEMALA_2024
-    )
+    validar_estado(estado_base, POBLACION_GUATEMALA_2024)
 
-    print(
-        "Estado inicial válido."
-    )
+    print("Estado inicial válido.")
 
     print()
-    print(
-        "Prueba de beta estacional:"
-    )
+    print("Prueba de beta estacional:")
 
     # Estos valores de beta_base, amplitud y fase
     # todavía son únicamente una prueba técnica.
-    beta_prueba = beta_estacional(
-        semana=1,
-        beta_base=2.0,
-        amplitud=0.3,
-        fase=30
-    )
+    beta_prueba = beta_estacional(semana=1, beta_base=2.0, amplitud=0.3, fase=30)
 
-    print(
-        "Beta semana 1:",
-        round(
-            beta_prueba,
-            6
-        )
-    )
+    print("Beta semana 1:", round(beta_prueba, 6))
 
     print()
-    print(
-        "Prueba de derivadas:"
-    )
+    print("Prueba de derivadas:")
 
     derivadas = derivadas_seir(
         estado=estado_base,
@@ -735,16 +476,12 @@ def main():
         fase=30,
         sigma=SIGMA_BASE,
         gamma=GAMMA_BASE,
-        poblacion=POBLACION_GUATEMALA_2024
+        poblacion=POBLACION_GUATEMALA_2024,
     )
 
-    print(
-        "dS, dE, dI, dR, dC:"
-    )
+    print("dS, dE, dI, dR, dC:")
 
-    print(
-        derivadas
-    )
+    print(derivadas)
 
 
 if __name__ == "__main__":
