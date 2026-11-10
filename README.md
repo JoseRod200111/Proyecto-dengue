@@ -6,6 +6,18 @@ optimización por enjambre de partículas (PSO) y se contrastan con la serie
 semanal de PAHO/OPS. El archivo MSPAS se usa para análisis por departamento,
 grupo etario y sexo.
 
+## Inicio rápido
+
+```bash
+pip install -r requirements.txt
+python -m src.servidor          # interfaz web para explorar el modelo
+python -m src.todo              # reproduce todo el flujo, de los datos a la comparación
+```
+
+`python -m src.todo --rapido` hace una prueba completa en menos de un minuto con
+3 repeticiones, pero sobrescribe `results/`; para restaurarlo,
+`git checkout results`.
+
 ## Resultados principales
 
 | Métrica | PAHO (real) | SEIR base | SEIR calibrado (PSO) |
@@ -42,6 +54,7 @@ docs/        texto del informe por secciones y guía de defensa
 | `src/comparacion.py`, `src/graficas.py` | Comparación con datos reales y gráficas |
 | `src/metricas.py` | MAE y RMSE compartidos por todos los módulos |
 | `src/servidor.py`, `ui/index.html` | Interfaz web interactiva para la presentación |
+| `src/todo.py` | Ejecuta todo el flujo con un solo comando |
 
 ## Requisitos
 
@@ -60,8 +73,9 @@ más reciente.
 
 ## Reproducción completa
 
-Desde la raíz del repositorio y en este orden. El estudio PSO y los
-experimentos tardan unos minutos cada uno.
+`python -m src.todo` ejecuta los pasos siguientes en este orden (30 repeticiones
+por defecto; el estudio PSO y los experimentos tardan unos minutos cada uno).
+Para ejecutarlos uno por uno, desde la raíz del repositorio:
 
 ```bash
 python -m src.datos
