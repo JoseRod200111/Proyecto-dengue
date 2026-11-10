@@ -6,6 +6,7 @@ import pandas as pd
 from src import datos, graficas
 from src.datos import RESULTS_DIR
 from src.escenarios import crear_escenario_base
+from src.metricas import metricas_error
 from src.simulacion import simular_seir
 
 ARCHIVO_MEJORADA = "simulacion_mejorada.csv"
@@ -27,8 +28,7 @@ def calcular_metricas(observados, simulados):
         "total_simulado": simulados.sum(),
         "diferencia_total": error.sum(),
         "diferencia_total_pct": 100 * error.sum() / observados.sum(),
-        "mae": np.abs(error).mean(),
-        "rmse": np.sqrt((error**2).mean()),
+        **metricas_error(observados, simulados),
         "mape": 100 * np.abs(error[mascara] / observados[mascara]).mean(),
         "semana_pico_observada": int(np.argmax(observados)) + 1,
         "semana_pico_simulada": int(np.argmax(simulados)) + 1,
@@ -89,13 +89,15 @@ def main(directorio=RESULTS_DIR):
     ]
 
     if ARCHIVO_SENSIBILIDAD.exists():
-        figuras.append(
-            graficas.sensibilidad_local(pd.read_csv(ARCHIVO_SENSIBILIDAD), directorio)
-        )
+        figuras.append(graficas.sensibilidad_local(pd.read_csv(ARCHIVO_SENSIBILIDAD), directorio))
 
     print(metricas.round(2).T.to_string())
     print()
-    for ruta in [directorio / "metricas_comparacion.csv", directorio / "comparacion_semanal.csv", *figuras]:
+    for ruta in [
+        directorio / "metricas_comparacion.csv",
+        directorio / "comparacion_semanal.csv",
+        *figuras,
+    ]:
         print(ruta)
 
     if "mejorada" not in escenarios:

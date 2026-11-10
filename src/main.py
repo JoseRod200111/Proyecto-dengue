@@ -6,24 +6,21 @@ import pandas as pd
 from src import datos
 from src.datos import RESULTS_DIR
 from src.escenarios import crear_escenario_base
+from src.metricas import metricas_error
 from src.simulacion import simular_seir
 
 # ============================================================
 # COMPARACIÓN CON PAHO
 # ============================================================
 
-def comparar_con_paho(
-    resultados,
-    datos_paho
-):
+
+def comparar_con_paho(resultados, datos_paho):
     """
     Compara los casos semanales simulados con los observados.
     """
 
     if len(resultados) != len(datos_paho):
-        raise ValueError(
-            "La simulación y PAHO no tienen la misma cantidad de semanas."
-        )
+        raise ValueError("La simulación y PAHO no tienen la misma cantidad de semanas.")
 
     comparacion = pd.DataFrame(
         {
@@ -33,15 +30,9 @@ def comparar_con_paho(
         }
     )
 
-    comparacion["error"] = (
-        comparacion["simulados"]
-        - comparacion["observados"]
-    )
+    comparacion["error"] = comparacion["simulados"] - comparacion["observados"]
 
-    comparacion["error_absoluto"] = (
-        comparacion["error"]
-        .abs()
-    )
+    comparacion["error_absoluto"] = comparacion["error"].abs()
 
     return comparacion
 
@@ -50,30 +41,19 @@ def comparar_con_paho(
 # RESUMEN DE RESULTADOS
 # ============================================================
 
-def calcular_resumen(
-    escenario,
-    resultados,
-    comparacion
-):
+
+def calcular_resumen(escenario, resultados, comparacion):
     """
     Construye el resumen numérico del escenario base.
     """
 
-    pico_simulado = resultados.loc[
-        resultados["casos_semana"].idxmax()
-    ]
+    pico_simulado = resultados.loc[resultados["casos_semana"].idxmax()]
 
-    pico_observado = comparacion.loc[
-        comparacion["observados"].idxmax()
-    ]
+    pico_observado = comparacion.loc[comparacion["observados"].idxmax()]
 
-    mae = comparacion["error_absoluto"].mean()
-    rmse = (
-        comparacion["error"]
-        .pow(2)
-        .mean()
-        ** 0.5
-    )
+    errores = metricas_error(comparacion["observados"], comparacion["simulados"])
+    mae = errores["mae"]
+    rmse = errores["rmse"]
 
     return {
         "escenario": escenario.nombre,
@@ -94,30 +74,17 @@ def calcular_resumen(
         "semanas": escenario.semanas,
         "paso": escenario.paso,
         "metricas": {
-            "total_simulado": int(
-                resultados["casos_semana"].sum()
-            ),
-            "total_observado": int(
-                comparacion["observados"].sum()
-            ),
+            "total_simulado": int(resultados["casos_semana"].sum()),
+            "total_observado": int(comparacion["observados"].sum()),
             "mae": float(mae),
             "rmse": float(rmse),
-            "semana_pico_simulada": int(
-                pico_simulado["semana"]
-            ),
-            "casos_pico_simulados": float(
-                pico_simulado["casos_semana"]
-            ),
-            "semana_pico_observada": int(
-                pico_observado["semana"]
-            ),
-            "casos_pico_observados": int(
-                pico_observado["observados"]
-            ),
+            "semana_pico_simulada": int(pico_simulado["semana"]),
+            "casos_pico_simulados": float(pico_simulado["casos_semana"]),
+            "semana_pico_observada": int(pico_observado["semana"]),
+            "casos_pico_observados": int(pico_observado["observados"]),
         },
         "nota": (
-            "Escenario base sin calibración. "
-            "No debe interpretarse como un ajuste epidemiológico."
+            "Escenario base sin calibración. No debe interpretarse como un ajuste epidemiológico."
         ),
     }
 
@@ -126,49 +93,25 @@ def calcular_resumen(
 # GUARDADO DE RESULTADOS
 # ============================================================
 
-def guardar_resultados(
-    resultados,
-    comparacion,
-    resumen,
-    directorio=RESULTS_DIR
-):
+
+def guardar_resultados(resultados, comparacion, resumen, directorio=RESULTS_DIR):
     """
     Guarda los CSV y el resumen JSON del escenario base.
     """
 
     directorio = Path(directorio)
-    directorio.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+    directorio.mkdir(parents=True, exist_ok=True)
 
     ruta_simulacion = directorio / "simulacion_base.csv"
     ruta_comparacion = directorio / "comparacion_paho.csv"
     ruta_resumen = directorio / "resumen_base.json"
 
-    resultados.to_csv(
-        ruta_simulacion,
-        index=False,
-        encoding="utf-8"
-    )
+    resultados.to_csv(ruta_simulacion, index=False, encoding="utf-8")
 
-    comparacion.to_csv(
-        ruta_comparacion,
-        index=False,
-        encoding="utf-8"
-    )
+    comparacion.to_csv(ruta_comparacion, index=False, encoding="utf-8")
 
-    with open(
-        ruta_resumen,
-        "w",
-        encoding="utf-8"
-    ) as archivo:
-        json.dump(
-            resumen,
-            archivo,
-            indent=2,
-            ensure_ascii=False
-        )
+    with open(ruta_resumen, "w", encoding="utf-8") as archivo:
+        json.dump(resumen, archivo, indent=2, ensure_ascii=False)
 
     return {
         "simulacion": ruta_simulacion,
@@ -181,94 +124,51 @@ def guardar_resultados(
 # PROGRAMA PRINCIPAL
 # ============================================================
 
+
 def main():
     datos_paho = datos.cargar_paho_validado()
 
     escenario = crear_escenario_base()
 
-    resultados = simular_seir(
-        escenario
-    )
+    resultados = simular_seir(escenario)
 
-    comparacion = comparar_con_paho(
-        resultados,
-        datos_paho
-    )
+    comparacion = comparar_con_paho(resultados, datos_paho)
 
-    resumen = calcular_resumen(
-        escenario,
-        resultados,
-        comparacion
-    )
+    resumen = calcular_resumen(escenario, resultados, comparacion)
 
-    rutas = guardar_resultados(
-        resultados,
-        comparacion,
-        resumen
-    )
+    rutas = guardar_resultados(resultados, comparacion, resumen)
 
-    print(
-        "=================================================="
-    )
-    print(
-        "ESCENARIO BASE - DENGUE GUATEMALA 2024"
-    )
-    print(
-        "=================================================="
-    )
+    print("==================================================")
+    print("ESCENARIO BASE - DENGUE GUATEMALA 2024")
+    print("==================================================")
 
     print()
-    print(
-        "Total simulado:",
-        resumen["metricas"]["total_simulado"]
-    )
-    print(
-        "Total observado:",
-        resumen["metricas"]["total_observado"]
-    )
-    print(
-        "MAE:",
-        round(
-            resumen["metricas"]["mae"],
-            2
-        )
-    )
-    print(
-        "RMSE:",
-        round(
-            resumen["metricas"]["rmse"],
-            2
-        )
-    )
+    print("Total simulado:", resumen["metricas"]["total_simulado"])
+    print("Total observado:", resumen["metricas"]["total_observado"])
+    print("MAE:", round(resumen["metricas"]["mae"], 2))
+    print("RMSE:", round(resumen["metricas"]["rmse"], 2))
 
     print()
     print(
         "Pico simulado: semana",
         resumen["metricas"]["semana_pico_simulada"],
         "-",
-        int(
-            resumen["metricas"]["casos_pico_simulados"]
-        ),
-        "casos"
+        int(resumen["metricas"]["casos_pico_simulados"]),
+        "casos",
     )
     print(
         "Pico observado: semana",
         resumen["metricas"]["semana_pico_observada"],
         "-",
         resumen["metricas"]["casos_pico_observados"],
-        "casos"
+        "casos",
     )
 
     print()
-    print(
-        "Nota:",
-        resumen["nota"]
-    )
+    print("Nota:", resumen["nota"])
 
     print()
-    print(
-        "Resultados guardados en:"
-    )
+    print("Resultados guardados en:")
 
     for ruta in rutas.values():
         print(ruta)
