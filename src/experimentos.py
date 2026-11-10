@@ -6,11 +6,11 @@ verificaciones internas del modelo. Uso:
     python -m src.experimentos --repeticiones 30 --procesos 2
 """
 import argparse
+import json
+import platform
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import asdict, replace
-import json
 from pathlib import Path
-import platform
 
 import numpy as np
 import pandas as pd
@@ -18,10 +18,14 @@ import pandas as pd
 from src.datos import BASE_DIR, SEMANAS_CALIBRACION, cargar_paho_validado
 from src.escenarios import crear_escenario_base
 from src.estudio_pso import generar_semillas, sha256_texto
-from src.optimizacion import (LIMITES, NOMBRES, ConfiguracionPSO, calibrar_seir,
-                              metadatos_fuente)
+from src.optimizacion import (
+    LIMITES,
+    NOMBRES,
+    ConfiguracionPSO,
+    calibrar_seir,
+    metadatos_fuente,
+)
 from src.simulacion import simular_seir
-
 
 SALIDA = BASE_DIR / "results" / "experimentos"
 ESTUDIO_PERSONA_3 = BASE_DIR / "results" / "pso" / "estudio" / "ejecuciones.csv"

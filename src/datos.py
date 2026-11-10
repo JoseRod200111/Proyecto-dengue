@@ -1,8 +1,8 @@
-from pathlib import Path
 import csv
 import re
-import pandas as pd
+from pathlib import Path
 
+import pandas as pd
 
 # ============================================================
 # RUTAS DEL PROYECTO

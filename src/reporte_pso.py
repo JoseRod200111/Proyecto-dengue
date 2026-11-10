@@ -15,7 +15,6 @@ from src.datos import cargar_paho_validado
 from src.escenarios import crear_escenario_base
 from src.simulacion import simular_seir
 
-
 COLORES = {"pso": "#00796B", "pso_presupuesto_reducido": "#C17613", "aleatoria": "#7364A5"}
 
 
@@ -98,12 +97,13 @@ def generar_reporte(directorio):
         condiciones = list(COLORES)
         for ax, columna, titulo in zip(ejes, ("rmse_calibracion", "rmse_evaluacion"),
                                        (f"Calibración · semanas 1–{corte}",
-                                        f"Evaluación temporal · semanas {corte + 1}–52")):
+                                        f"Evaluación temporal · semanas {corte + 1}–52"),
+                                       strict=True):
             grupos = [ejecuciones.loc[ejecuciones["condicion"] == c, columna].to_numpy()
                       for c in condiciones]
             cajas = ax.boxplot(grupos, patch_artist=True, showfliers=False,
                                medianprops={"color": "#202939", "linewidth": 1.7})
-            for i, (caja, c, valores) in enumerate(zip(cajas["boxes"], condiciones, grupos), 1):
+            for i, (caja, c, valores) in enumerate(zip(cajas["boxes"], condiciones, grupos, strict=True), 1):
                 caja.set(facecolor=COLORES[c], alpha=0.23)
                 # Desplazamiento fijo solo para separar puntos; no añade aleatoriedad científica.
                 ax.scatter(i + np.linspace(-0.09, 0.09, len(valores)), valores,

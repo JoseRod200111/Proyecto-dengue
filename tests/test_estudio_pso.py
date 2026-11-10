@@ -5,8 +5,12 @@ import pandas as pd
 import pytest
 
 from src.escenarios import crear_escenario_base
-from src.estudio_pso import (generar_semillas, guardar_estudio, resumir_ejecuciones,
-                             sha256_texto)
+from src.estudio_pso import (
+    generar_semillas,
+    guardar_estudio,
+    resumir_ejecuciones,
+    sha256_texto,
+)
 from src.optimizacion import ConfiguracionPSO, calibrar_seir
 from src.simulacion import simular_seir
 

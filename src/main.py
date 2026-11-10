@@ -8,7 +8,6 @@ from src.datos import RESULTS_DIR
 from src.escenarios import crear_escenario_base
 from src.simulacion import simular_seir
 
-
 # ============================================================
 # COMPARACIÓN CON PAHO
 # ============================================================

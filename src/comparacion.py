@@ -4,10 +4,9 @@ import numpy as np
 import pandas as pd
 
 from src import datos, graficas
-from src.escenarios import crear_escenario_base
 from src.datos import RESULTS_DIR
+from src.escenarios import crear_escenario_base
 from src.simulacion import simular_seir
-
 
 ARCHIVO_MEJORADA = "simulacion_mejorada.csv"
 ARCHIVO_SENSIBILIDAD = RESULTS_DIR / "experimentos" / "sensibilidad_local.csv"

@@ -1,11 +1,11 @@
 """PSO global-best y calibración del SEIR. Ejecutar: python -m src.optimizacion."""
 
 import argparse
-from dataclasses import asdict, dataclass, replace
-import json
 import hashlib
-from pathlib import Path
+import json
 import platform
+from dataclasses import asdict, dataclass, replace
+from pathlib import Path
 from time import perf_counter
 
 import numpy as np
@@ -15,7 +15,6 @@ from src.datos import RESULTS_DIR, RUTA_PAHO, SEMANAS_CALIBRACION, cargar_paho_v
 from src.escenarios import crear_escenario_base
 from src.evaluacion_pso import incidencia_lote
 from src.simulacion import obtener_pasos_por_semana, simular_seir
-
 
 NOMBRES = ("beta_base", "amplitud", "fase")
 # Dominio exploratorio, no intervalos epidemiológicos estimados.
@@ -165,7 +164,7 @@ def escenario_candidato(base, candidato, limites=LIMITES):
     if (candidato.shape != (3,) or not np.isfinite(candidato).all()
             or np.any(candidato < limites[:, 0]) or np.any(candidato > limites[:, 1])):
         raise ValueError("El candidato incumple las restricciones de búsqueda.")
-    parametros = replace(base.parametros, **dict(zip(NOMBRES, candidato.tolist())))
+    parametros = replace(base.parametros, **dict(zip(NOMBRES, candidato.tolist(), strict=True)))
     return replace(base, nombre="mejorada", parametros=parametros)
 
 
@@ -298,7 +297,7 @@ def calibrar_seir(observados, base=None, configuracion=None, limites=LIMITES,
         "objetivo": "Minimizar RMSE semanal en calibración; no reducir contagios reales.",
         "configuracion_pso": asdict(config),
         "evaluaciones_busqueda": config.particulas * (config.iteraciones + 1),
-        "limites": dict(zip(NOMBRES, np.asarray(limites).tolist())),
+        "limites": dict(zip(NOMBRES, np.asarray(limites).tolist(), strict=True)),
         "parametros_base": asdict(base.parametros),
         "parametros_mejorados": asdict(mejorado.parametros),
         "condiciones_iniciales": asdict(base.condiciones),
@@ -317,7 +316,7 @@ def calibrar_seir(observados, base=None, configuracion=None, limites=LIMITES,
         "controles": controles,
         "segundos": perf_counter() - inicio_tiempo,
         "parametros_en_limite": [nombre for nombre, valor, (menor, mayor)
-                                 in zip(NOMBRES, resultado["posicion"], limites)
+                                 in zip(NOMBRES, resultado["posicion"], limites, strict=True)
                                  if np.isclose(valor, menor) or np.isclose(valor, mayor)],
         "restricciones_verificadas": True,
         "versiones": {"python": platform.python_version(), "numpy": np.__version__,

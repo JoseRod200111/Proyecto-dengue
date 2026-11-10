@@ -12,7 +12,6 @@ from src.modelo_seir import (
     validar_parametros,
 )
 
-
 # ============================================================
 # PARÁMETROS DEL ESCENARIO BASE
 # ============================================================
@@ -119,15 +118,14 @@ class Escenario:
                 "El paso debe ser mayor que cero."
             )
 
-        if self.semilla is not None:
-            if (
-                isinstance(self.semilla, bool)
-                or not isinstance(self.semilla, int)
-                or self.semilla < 0
-            ):
-                raise ValueError(
-                    "La semilla debe ser un entero no negativo."
-                )
+        if self.semilla is not None and (
+            isinstance(self.semilla, bool)
+            or not isinstance(self.semilla, int)
+            or self.semilla < 0
+        ):
+            raise ValueError(
+                "La semilla debe ser un entero no negativo."
+            )
 
         if not isinstance(
             self.modo_estocastico,

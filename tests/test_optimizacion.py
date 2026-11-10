@@ -5,12 +5,15 @@ import pandas as pd
 import pytest
 
 from src.escenarios import crear_escenario_base
+from src.evaluacion_pso import incidencia_lote
 from src.optimizacion import (
-    ConfiguracionPSO, calibrar_seir, escenario_candidato,
-    guardar_calibracion, optimizar_pso,
+    ConfiguracionPSO,
+    calibrar_seir,
+    escenario_candidato,
+    guardar_calibracion,
+    optimizar_pso,
 )
 from src.simulacion import simular_seir
-from src.evaluacion_pso import incidencia_lote
 
 
 def test_pso_converge_en_esfera_y_respeta_dominio():
@@ -110,7 +113,9 @@ def test_evaluador_lote_equivale_al_modelo_canonico(paso):
 
 def test_objetivo_lote_y_escalar_dan_el_mismo_resultado():
     config = ConfiguracionPSO(particulas=8, iteraciones=15, semilla=29)
-    objetivo = lambda x: np.sum(x ** 2)
+    def objetivo(x):
+        return np.sum(x ** 2)
+
     a = optimizar_pso(objetivo, [(-1, 1)] * 2, config)
     b = optimizar_pso(None, [(-1, 1)] * 2, config,
                      objetivo_lote=lambda x: np.sum(x ** 2, axis=1))

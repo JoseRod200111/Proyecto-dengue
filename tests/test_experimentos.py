@@ -5,9 +5,16 @@ import pandas as pd
 import pytest
 
 from src.escenarios import crear_escenario_base
-from src.experimentos import (diferencias_pareadas, intervalo_bootstrap, main,
-                              metricas_condicion, resumir, sensibilidad_local,
-                              verificar_corridas, verificar_modelo)
+from src.experimentos import (
+    diferencias_pareadas,
+    intervalo_bootstrap,
+    main,
+    metricas_condicion,
+    resumir,
+    sensibilidad_local,
+    verificar_corridas,
+    verificar_modelo,
+)
 from src.simulacion import simular_seir
 
 

@@ -4,19 +4,22 @@ python -m src.estudio_pso --repeticiones 30 --procesos 3
 """
 
 import argparse
-from concurrent.futures import ProcessPoolExecutor, as_completed
-from dataclasses import asdict, replace
 import hashlib
 import json
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from dataclasses import asdict, replace
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
 from src.datos import SEMANAS_CALIBRACION, cargar_paho_validado
-from src.optimizacion import (ConfiguracionPSO, calibrar_seir, guardar_calibracion,
-                              metadatos_fuente)
-
+from src.optimizacion import (
+    ConfiguracionPSO,
+    calibrar_seir,
+    guardar_calibracion,
+    metadatos_fuente,
+)
 
 CONDICIONES = ("pso", "pso_presupuesto_reducido", "aleatoria")
 

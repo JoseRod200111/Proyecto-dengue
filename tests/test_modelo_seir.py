@@ -14,9 +14,9 @@ def test_estado_inicial_base():
     assert I == modelo_seir.I0_BASE
     assert R == 0
     assert C == 0
-    assert S + E + I + R == pytest.approx(
+    assert pytest.approx(
         modelo_seir.POBLACION_GUATEMALA_2024
-    )
+    ) == S + E + I + R
 
 
 def test_validar_estado_rechaza_negativos():
