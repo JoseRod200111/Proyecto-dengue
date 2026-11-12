@@ -210,7 +210,20 @@ ruff format src tests     # formato, 100 columnas
 - [Secciones 6 y 7: comparación, resultados y conclusiones](docs/informe_persona_5.md)
 - [Guía de defensa y demostración](docs/guia_defensa_pso.md)
 - [Detalles del algoritmo PSO y del estudio](docs/pso_detalles.md)
+- [Presentación final (PDF)](docs/presentacion_final.pdf)
 - [Procedencia de los datos](data/README.md)
+
+## Equipo
+
+Curso CC3074 Modelización y Simulación, Universidad del Valle de Guatemala.
+
+| Integrante | Responsabilidad |
+|---|---|
+| José Roberto Rodriguez Reyes | Problema, datos y modelo matemático |
+| José Pablo Ordoñez Barrios | Simulación funcional y escenario base |
+| Carlos Daniel Estrada Vega | Técnica adicional y optimización (PSO) |
+| Alejandro Rivera | Experimentación y validación |
+| Juan Cruz | Comparación con datos reales, análisis y visualización |
 
 ## Limitaciones
 
